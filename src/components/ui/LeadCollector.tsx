@@ -3,9 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { X, Send, MessageCircle, RotateCcw } from "lucide-react";
-import { company } from "@/data/company";
-
-/* -- Types ------------------------------------------------- */
+import { company, logoSrc } from "@/data/company";
 
 type Step = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -28,19 +26,13 @@ interface SessionState {
 
 const STORAGE_KEY = "up-lead-collector";
 
-/* -- Helpers ----------------------------------------------- */
-
 let _msgId = 0;
 const uid = () => `m-${Date.now()}-${++_msgId}`;
 
 function loadSession(): SessionState | null {
   if (typeof window === "undefined") return null;
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : null;
-  } catch { return null; }
+  try { const raw = localStorage.getItem(STORAGE_KEY); return raw ? JSON.parse(raw) : null; } catch { return null; }
 }
-
 function saveSession(state: SessionState) {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
 }
@@ -55,8 +47,6 @@ const serviceOptions: Option[] = [
   { label: "Commercial", value: "Commercial" },
   { label: "Something Else", value: "Something Else" },
 ];
-
-/* -- Component --------------------------------------------- */
 
 export default function LeadCollector() {
   const prefersReduced = useReducedMotion();
@@ -108,8 +98,7 @@ export default function LeadCollector() {
 
   const addUserMsg = useCallback((text: string) => {
     const msg: UserMsg = { id: uid(), role: "user", text };
-    const updated = [...sessionRef.current.messages, msg];
-    sync({ messages: updated });
+    sync({ messages: [...sessionRef.current.messages, msg] });
   }, [sync]);
 
   useEffect(() => { return () => { if (typingTimer.current) clearTimeout(typingTimer.current); }; }, []);
@@ -119,7 +108,6 @@ export default function LeadCollector() {
   useEffect(() => {
     if (!open || initRef.current) return;
     initRef.current = true;
-
     const saved = loadSession();
     if (saved && saved.messages.length > 0) {
       sessionRef.current = saved;
@@ -128,18 +116,15 @@ export default function LeadCollector() {
       if (saved.step === 5) setFormStep("contact");
       return;
     }
-
     requestAnimationFrame(() => {
       addBotMsg({ text: "Hey! What are you looking to repaint?", options: serviceOptions }, 500);
     });
   }, [open, addBotMsg]);
 
-  /* -- Step handlers --------------------------------------- */
-
   const handleStep1 = useCallback((value: string) => {
     addUserMsg(value);
     sync({ step: 2, service: value });
-    addBotMsg({ text: "What\u2019s your timeline looking like?", options: [
+    addBotMsg({ text: "What\u2019s your timeline?", options: [
       { label: "Within 1 month", value: "Within 1 month" },
       { label: "1-3 months", value: "1-3 months" },
       { label: "3-6 months", value: "3-6 months" },
@@ -150,7 +135,7 @@ export default function LeadCollector() {
   const handleStep2 = useCallback((value: string) => {
     addUserMsg(value);
     sync({ step: 3, urgency: value });
-    addBotMsg({ text: "What type of property is this for?", options: [
+    addBotMsg({ text: "What type of property?", options: [
       { label: "Single Family Home", value: "Single Family Home" },
       { label: "Townhouse", value: "Townhouse" },
       { label: "Multi-Family", value: "Multi-Family" },
@@ -197,11 +182,10 @@ export default function LeadCollector() {
     formData.append("urgency", s.urgency ?? "");
     formData.append("property", s.property ?? "");
     formData.append("description", s.description ?? "");
-    formData.append("message", `Lead Collector \u2014 Service: ${s.service}, Timeline: ${s.urgency}, Property: ${s.property}, Details: ${s.description}`);
-
+    formData.append("message", `Lead Collector — Service: ${s.service}, Timeline: ${s.urgency}, Property: ${s.property}, Details: ${s.description}`);
     fetch(company.formAction, { method: "POST", body: formData, headers: { Accept: "application/json" } }).catch(() => {});
 
-    addBotMsg({ text: `Got it! We'll review your project details and reach out within 24 hours. For faster response, call us directly at ${company.phone}.` });
+    addBotMsg({ text: `Got it! We'll review your project and reach out within 24 hours. Call us anytime at ${company.phone}.` });
     setNameVal(""); setPhoneVal(""); setEmailVal("");
   }, [nameVal, phoneVal, emailVal, addBotMsg, addUserMsg, sync]);
 
@@ -225,31 +209,30 @@ export default function LeadCollector() {
   }, [addBotMsg]);
 
   const dur = prefersReduced ? 0 : 0.3;
+  const ease = [0.22, 1, 0.36, 1] as const;
 
   return (
     <>
-      {/* Floating pill button */}
+      {/* Floating trigger — Greeno-style pill with avatar */}
       <AnimatePresence>
         {!open && (
           <motion.button
             key="bubble"
             onClick={() => setOpen(true)}
-            className="fixed bottom-22 right-6 lg:bottom-6 lg:right-6 z-50 flex items-center gap-2.5 bg-white text-sky-600 pl-4 pr-5 py-3 shadow-lg border border-slate-200 hover:shadow-xl hover:border-sky-300 transition-all duration-300 cursor-pointer group"
-            initial={{ scale: 0.9, opacity: 0, y: 10 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 10 }}
-            transition={{ scale: { duration: dur, type: "spring", stiffness: 300, damping: 20 }, opacity: { duration: dur } }}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            aria-label="Open chat"
+            className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-paint-ink text-paint-cream pl-3 pr-5 py-3 rounded-full shadow-[0_12px_30px_-10px_rgba(20,17,13,0.55)] hover:bg-paint-charcoal transition-colors duration-300 cursor-pointer group"
+            initial={{ opacity: 0, y: 12, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 12, scale: 0.9 }}
+            transition={{ duration: dur, ease }}
           >
-            <MessageCircle className="h-5 w-5 text-sky-500 group-hover:text-sky-600 transition-colors duration-300" />
-            <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900 transition-colors duration-300 whitespace-nowrap">
-              Planning a repaint?
+            {/* Avatar with status dot */}
+            <span className="relative w-9 h-9 rounded-full bg-white/15 flex items-center justify-center overflow-hidden shrink-0">
+              <img src={logoSrc} alt="" className="w-7 h-7 object-contain" />
+              <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-paint-clay border-2 border-paint-ink" />
             </span>
-            <span className="relative flex h-2.5 w-2.5 shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-400 opacity-60" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-slate-700" />
+            <span className="flex flex-col items-start min-w-0">
+              <span className="text-sm font-medium text-paint-cream leading-tight">Chat with Vasyl</span>
+              <span className="text-[10px] uppercase tracking-[0.15em] text-paint-cream/60 leading-tight mt-0.5">Usually replies in 24h</span>
             </span>
           </motion.button>
         )}
@@ -258,122 +241,137 @@ export default function LeadCollector() {
       {/* Chat panel */}
       <AnimatePresence>
         {open && (
-          <motion.div
-            key="chat"
-            ref={panelRef}
-            className="fixed z-50 flex flex-col overflow-hidden bg-white shadow-2xl bottom-4 right-4 w-[calc(100vw-2rem)] max-w-[380px] h-[min(440px,75dvh)]"
-            style={{ boxShadow: "0 12px 48px rgba(0,0,0,0.14), 0 2px 12px rgba(0,0,0,0.08)" }}
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: dur }}
-          >
-            {/* Header */}
-            <div className="flex shrink-0 items-center justify-between px-5 py-3.5 bg-sky-500">
-              <div className="flex items-center gap-3">
-                <div className="relative flex h-9 w-9 items-center justify-center bg-white/20 overflow-hidden">
-                  <span className="font-display text-white text-xs font-black">UP</span>
-                  <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-white border-2 border-sky-500" />
-                </div>
-                <div>
-                  <p className="font-display text-[15px] font-bold text-white">{company.shortName}</p>
-                  <p className="text-[10px] uppercase tracking-[0.15em] text-white/70">Online now</p>
-                </div>
-              </div>
-              <button onClick={() => setOpen(false)} className="flex h-8 w-8 items-center justify-center text-white/60 transition-colors hover:bg-white/15 hover:text-white cursor-pointer" aria-label="Minimize chat">
-                <X size={16} />
-              </button>
-            </div>
+          <>
+            {/* Mobile backdrop */}
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[60] bg-paint-ink/25 backdrop-blur-[2px] lg:hidden"
+              onClick={() => setOpen(false)}
+            />
 
-            {/* Messages */}
-            <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 bg-slate-50">
-              <div className="flex flex-col gap-3">
-                <AnimatePresence initial={false}>
-                  {messages.map((msg) => (
-                    <motion.div
-                      key={msg.id}
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: dur * 0.8 }}
-                      className={msg.role === "user" ? "flex justify-end" : "flex justify-start"}
-                    >
-                      {msg.role === "user" ? (
-                        <div className="max-w-[80%] border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-800 shadow-sm">
-                          {msg.text}
-                        </div>
-                      ) : (
-                        <div className="flex max-w-[90%] flex-col gap-2.5">
-                          <div className="bg-sky-500 px-4 py-2.5 text-sm leading-relaxed text-white shadow-sm">
+            <motion.div
+              key="chat"
+              ref={panelRef}
+              className="fixed z-[70] flex flex-col overflow-hidden bg-white rounded-2xl border border-paint-ink/10 shadow-[0_40px_80px_-30px_rgba(20,17,13,0.4)] bottom-4 right-4 left-4 top-16 max-h-[calc(100dvh-5rem)] lg:inset-auto lg:bottom-6 lg:right-6 lg:top-auto lg:left-auto lg:w-[400px] lg:h-[620px]"
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.95 }}
+              transition={{ duration: dur, ease }}
+            >
+              {/* Header */}
+              <div className="flex shrink-0 items-center justify-between px-5 py-4 bg-paint-ink rounded-t-2xl">
+                <div className="flex items-center gap-3">
+                  <span className="relative w-10 h-10 rounded-full bg-white/15 flex items-center justify-center overflow-hidden">
+                    <img src={logoSrc} alt="" className="w-8 h-8 object-contain" />
+                    <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-paint-clay border-2 border-paint-ink" />
+                  </span>
+                  <div>
+                    <p className="text-[15px] font-medium text-paint-cream">{company.shortName}</p>
+                    <p className="text-[10px] uppercase tracking-[0.15em] text-paint-cream/60">Online now</p>
+                  </div>
+                </div>
+                <button onClick={() => setOpen(false)} className="flex h-8 w-8 items-center justify-center rounded-full text-paint-cream/60 transition-colors hover:bg-white/10 hover:text-paint-cream cursor-pointer" aria-label="Minimize chat">
+                  <X size={16} />
+                </button>
+              </div>
+
+              {/* Messages */}
+              <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 bg-slate-50">
+                <div className="flex flex-col gap-3">
+                  <AnimatePresence initial={false}>
+                    {messages.map((msg) => (
+                      <motion.div
+                        key={msg.id}
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: dur * 0.8 }}
+                        className={msg.role === "user" ? "flex justify-end" : "flex justify-start"}
+                      >
+                        {msg.role === "user" ? (
+                          <div className="max-w-[85%] bg-paint-clay text-white rounded-2xl rounded-tr-sm px-4 py-2.5 text-[14px] leading-relaxed">
                             {msg.text}
                           </div>
-                          {msg.options && msg.options.length > 0 && (
-                            <div className="flex flex-wrap gap-2 pt-1">
-                              {msg.options.map((opt) => (
-                                <button
-                                  key={opt.value}
-                                  onClick={() => handleOption(opt.value)}
-                                  className="border border-slate-200 bg-white px-4 py-2 text-[13px] font-medium text-slate-700 transition-all duration-200 hover:border-sky-400 hover:bg-sky-50 hover:text-sky-700 active:scale-[0.97] cursor-pointer shadow-sm"
-                                >
-                                  {opt.label}
-                                </button>
-                              ))}
+                        ) : (
+                          <div className="flex gap-2 max-w-[90%]">
+                            <span className="shrink-0 w-7 h-7 rounded-full bg-paint-clay flex items-center justify-center text-white text-[11px] font-semibold mt-0.5">V</span>
+                            <div className="flex flex-col gap-2.5">
+                              <div className="bg-paint-ink/[0.06] border border-paint-ink/10 rounded-2xl rounded-tl-sm px-4 py-3 text-[14px] leading-relaxed text-paint-ink">
+                                {msg.text}
+                              </div>
+                              {msg.options && msg.options.length > 0 && (
+                                <div className="flex flex-wrap gap-1.5 pt-1">
+                                  {msg.options.map((opt) => (
+                                    <button
+                                      key={opt.value}
+                                      onClick={() => handleOption(opt.value)}
+                                      className="px-3.5 py-1.5 bg-white border border-paint-ink/15 rounded-full text-[12px] font-medium text-paint-ink/80 transition-all duration-200 hover:border-paint-clay hover:text-paint-clay hover:bg-paint-clay/5 active:scale-[0.97] cursor-pointer"
+                                    >
+                                      {opt.label}
+                                    </button>
+                                  ))}
+                                </div>
+                              )}
                             </div>
-                          )}
+                          </div>
+                        )}
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
+
+                  <AnimatePresence>
+                    {typing && (
+                      <motion.div key="typing" initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex gap-2">
+                        <span className="shrink-0 w-7 h-7 rounded-full bg-paint-clay flex items-center justify-center text-white text-[11px] font-semibold">V</span>
+                        <div className="flex items-center gap-1.5 bg-paint-ink/[0.06] border border-paint-ink/10 rounded-2xl px-4 py-3">
+                          <span className="lead-typing-dot" style={{ animationDelay: "0ms" }} />
+                          <span className="lead-typing-dot" style={{ animationDelay: "150ms" }} />
+                          <span className="lead-typing-dot" style={{ animationDelay: "300ms" }} />
                         </div>
-                      )}
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
-
-                <AnimatePresence>
-                  {typing && (
-                    <motion.div key="typing" initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} className="flex justify-start">
-                      <div className="flex items-center gap-1.5 bg-sky-500 px-4 py-3 shadow-sm">
-                        <span className="lead-typing-dot" style={{ animationDelay: "0ms" }} />
-                        <span className="lead-typing-dot" style={{ animationDelay: "150ms" }} />
-                        <span className="lead-typing-dot" style={{ animationDelay: "300ms" }} />
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
-            </div>
 
-            {/* Description input (Step 4) */}
-            {formStep === "description" && (
-              <motion.form initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }} onSubmit={handleDescriptionSubmit} className="flex shrink-0 items-center gap-2 border-t border-slate-200 bg-white px-4 py-3">
-                <div className="flex flex-1 items-center gap-2 border border-slate-200 bg-slate-50 px-4 py-2 transition-colors focus-within:border-sky-400">
-                  <input type="text" value={descVal} onChange={(e) => setDescVal(e.target.value)} placeholder="Describe your project..." className="flex-1 bg-transparent text-sm text-slate-800 outline-none placeholder:text-slate-400" autoFocus />
-                  <button type="submit" className="flex h-8 w-8 shrink-0 items-center justify-center bg-sky-500 text-white transition-all hover:bg-sky-600 active:scale-95 cursor-pointer" aria-label="Send">
-                    <Send size={14} />
+              {/* Description input */}
+              {formStep === "description" && (
+                <motion.form initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} onSubmit={handleDescriptionSubmit} className="flex shrink-0 items-center gap-2 border-t border-paint-ink/10 bg-white px-4 py-3">
+                  <div className="flex flex-1 items-center gap-2 border border-paint-ink/15 bg-slate-50 rounded-lg px-4 py-2 focus-within:border-paint-clay">
+                    <input type="text" value={descVal} onChange={(e) => setDescVal(e.target.value)} placeholder="Describe your project..." className="flex-1 bg-transparent text-sm text-paint-ink outline-none placeholder:text-paint-ink/40" autoFocus />
+                    <button type="submit" className="flex h-8 w-8 shrink-0 items-center justify-center bg-paint-clay text-white rounded-lg transition-all hover:bg-paint-rust active:scale-95 cursor-pointer" aria-label="Send">
+                      <Send size={14} />
+                    </button>
+                  </div>
+                </motion.form>
+              )}
+
+              {/* Contact form */}
+              {formStep === "contact" && (
+                <motion.form initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} onSubmit={handleContactSubmit} className="shrink-0 border-t border-paint-ink/10 bg-white px-4 py-3 space-y-2.5">
+                  <input type="text" value={nameVal} onChange={(e) => setNameVal(e.target.value)} placeholder="Your name *" required className="w-full bg-slate-50 border border-paint-ink/15 rounded-lg px-4 py-3 text-[14px] text-paint-ink outline-none placeholder:text-paint-ink/40 focus:border-paint-clay focus:ring-2 focus:ring-paint-clay/15" autoFocus />
+                  <input type="tel" value={phoneVal} onChange={(e) => setPhoneVal(e.target.value)} placeholder="Phone number *" required className="w-full bg-slate-50 border border-paint-ink/15 rounded-lg px-4 py-3 text-[14px] text-paint-ink outline-none placeholder:text-paint-ink/40 focus:border-paint-clay focus:ring-2 focus:ring-paint-clay/15" />
+                  <input type="email" value={emailVal} onChange={(e) => setEmailVal(e.target.value)} placeholder="Email (optional)" className="w-full bg-slate-50 border border-paint-ink/15 rounded-lg px-4 py-3 text-[14px] text-paint-ink outline-none placeholder:text-paint-ink/40 focus:border-paint-clay focus:ring-2 focus:ring-paint-clay/15" />
+                  <button type="submit" className="w-full bg-paint-clay hover:bg-paint-rust text-white rounded-lg py-3 text-[14px] font-medium transition-all active:scale-[0.98] cursor-pointer disabled:opacity-50 disabled:pointer-events-none">
+                    Send Request
+                  </button>
+                </motion.form>
+              )}
+
+              {/* Post-submit */}
+              {sessionRef.current.step === 6 && !formStep && (
+                <div className="shrink-0 border-t border-paint-ink/10 bg-white px-5 py-3 flex items-center justify-between">
+                  <button onClick={() => setOpen(false)} className="text-[12px] text-paint-ink/60 hover:text-paint-ink transition-colors cursor-pointer">Close</button>
+                  <button onClick={handleReset} className="flex items-center gap-1.5 text-[12px] text-paint-clay hover:text-paint-rust transition-colors cursor-pointer">
+                    <RotateCcw size={13} /> Start Over
                   </button>
                 </div>
-              </motion.form>
-            )}
-
-            {/* Contact form (Step 5) */}
-            {formStep === "contact" && (
-              <motion.form initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }} onSubmit={handleContactSubmit} className="shrink-0 border-t border-slate-200 bg-white px-4 py-3 space-y-2.5">
-                <input type="text" value={nameVal} onChange={(e) => setNameVal(e.target.value)} placeholder="Your name *" required className="w-full border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-800 outline-none placeholder:text-slate-400 transition-colors focus:border-sky-400" autoFocus />
-                <input type="tel" value={phoneVal} onChange={(e) => setPhoneVal(e.target.value)} placeholder="Phone number *" required className="w-full border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-800 outline-none placeholder:text-slate-400 transition-colors focus:border-sky-400" />
-                <input type="email" value={emailVal} onChange={(e) => setEmailVal(e.target.value)} placeholder="Email (optional)" className="w-full border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-800 outline-none placeholder:text-slate-400 transition-colors focus:border-sky-400" />
-                <button type="submit" className="w-full bg-sky-500 py-2.5 text-sm font-display font-bold text-white transition-all hover:bg-sky-600 active:scale-[0.98] cursor-pointer shadow-sm uppercase tracking-wide">
-                  SEND REQUEST
-                </button>
-              </motion.form>
-            )}
-
-            {/* Post-submit */}
-            {sessionRef.current.step === 6 && !formStep && (
-              <div className="shrink-0 border-t border-slate-200 bg-white px-4 py-3 flex gap-2">
-                <button onClick={() => setOpen(false)} className="flex-1 border border-slate-200 py-2.5 text-sm font-medium text-slate-600 transition-all hover:bg-slate-50 cursor-pointer">Close</button>
-                <button onClick={handleReset} className="flex-1 border border-sky-200 py-2.5 text-sm font-medium text-sky-600 transition-all hover:bg-sky-50 cursor-pointer flex items-center justify-center gap-1.5">
-                  <RotateCcw size={13} />
-                  Start Over
-                </button>
-              </div>
-            )}
-          </motion.div>
+              )}
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
 
@@ -387,7 +385,8 @@ export default function LeadCollector() {
           width: 6px;
           height: 6px;
           border-radius: 50%;
-          background-color: white;
+          background-color: var(--color-paint-ink);
+          opacity: 0.4;
           animation: lead-typing-bounce 1.4s ease-in-out infinite;
         }
       `}</style>

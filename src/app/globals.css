@@ -193,11 +193,11 @@ html.lenis, html.lenis body { height: auto; }
   gap: 0.5rem;
   padding: 14px 22px;
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 13px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  border-radius: 0;
+  border-radius: 6px;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -212,13 +212,9 @@ html.lenis, html.lenis body { height: auto; }
 
 /* Tick-tape — contractor-style dashed divider */
 .tick-tape {
-  height: 10px;
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--color-paint-ink) 0 14px,
-    transparent 14px 22px
-  );
-  opacity: 0.8;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-paint-clay), var(--color-paint-ink));
+  opacity: 0.6;
 }
 
 /* Back-compat aliases (for sub-pages still using old utility names) */
