@@ -71,7 +71,7 @@ export default function HomeHero() {
             </p>
 
             <div data-hero-cta className="mt-10 flex flex-wrap items-center gap-3">
-              <a href="/contact" className="btn-hard bg-paint-clay text-paint-cream hover:bg-paint-rust">
+              <a href="#estimate" className="btn-hard bg-paint-clay text-paint-cream hover:bg-paint-rust">
                 Get Free Estimate
                 <ArrowRight className="w-4 h-4" />
               </a>

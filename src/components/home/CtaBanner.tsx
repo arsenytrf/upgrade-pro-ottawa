@@ -35,7 +35,7 @@ export default function CtaBanner() {
                 written quote, no pressure.
               </p>
               <div className="flex flex-wrap gap-3">
-                <a href="/contact" className="btn-hard bg-paint-clay text-paint-cream hover:bg-paint-rust">
+                <a href="#estimate" className="btn-hard bg-paint-clay text-paint-cream hover:bg-paint-rust">
                   Book Estimate <ArrowRight className="w-4 h-4" />
                 </a>
                 <a href={`tel:${company.phoneRaw}`} className="btn-hard border border-paint-cream/40 text-paint-cream hover:bg-paint-cream hover:text-paint-ink">

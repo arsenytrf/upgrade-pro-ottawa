@@ -9,5 +9,5 @@ export const navLinks: NavLink[] = [
 
 export const ctaLink: NavLink = {
   label: "Free Estimate",
-  href: "/contact",
+  href: "/#estimate",
 };
