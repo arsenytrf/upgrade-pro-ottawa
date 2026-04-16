@@ -229,7 +229,7 @@ export default function BookingWizard() {
                     className={`relative p-4 md:p-5 text-left transition-all border ${
                       selected
                         ? "border-paint-clay bg-paint-clay text-paint-cream"
-                        : "border-paint-cream/15 bg-paint-ink/40 hover:border-paint-cream/50 hover:bg-paint-cream"
+                        : "border-paint-cream/15 bg-paint-ink/40 hover:border-paint-cream/50 hover:bg-paint-ink/70"
                     }`}
                   >
                     <Icon className="w-5 h-5 mb-3" strokeWidth={1.5} />
@@ -302,7 +302,7 @@ export default function BookingWizard() {
                     className={`relative p-4 md:p-5 text-left transition-all border ${
                       selected
                         ? "border-paint-clay bg-paint-clay text-paint-cream"
-                        : "border-paint-cream/15 bg-paint-ink/40 hover:border-paint-cream/50 hover:bg-paint-cream"
+                        : "border-paint-cream/15 bg-paint-ink/40 hover:border-paint-cream/50 hover:bg-paint-ink/70"
                     }`}
                   >
                     <div className="flex items-center gap-3 mb-1">

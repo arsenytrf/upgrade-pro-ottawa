@@ -29,8 +29,8 @@ export default function Navbar() {
           className={cn(
             "transition-all duration-300",
             scrolled
-              ? "bg-paint-cream/92 backdrop-blur-md border-b border-paint-ink/10"
-              : "bg-paint-cream/70 backdrop-blur-sm"
+              ? "bg-white/95 backdrop-blur-md border-b border-paint-ink/10 shadow-sm"
+              : "bg-white/80 backdrop-blur-sm"
           )}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14 h-16 md:h-20 flex items-center justify-between gap-6">
