@@ -13,51 +13,73 @@ export const company = {
   location: "Ottawa, ON",
   serviceArea: "Ottawa & Gatineau",
   cities: [
-    "Ottawa",
-    "Gatineau",
-    "Orleans",
-    "Kanata",
-    "Nepean",
-    "Barrhaven",
-    "Aylmer",
-    "Hull",
-    "Stittsville",
-    "Rockland",
+    "Ottawa","Gatineau","Orleans","Kanata","Nepean",
+    "Barrhaven","Aylmer","Hull","Stittsville","Rockland",
   ],
   tagline: "Painting Done Right. The First Time.",
   description:
-    "Professional interior, exterior, and cabinet painting for Ottawa and Gatineau homes. Meticulous prep, premium materials, and finishes that hold up — year after year.",
+    "Professional interior, exterior, and kitchen cabinet painting for Ottawa and Gatineau homes. Meticulous prep, premium materials, and finishes that hold up — year after year.",
   formAction: "https://formspree.io/f/placeholder",
   hours: {
     weekday: "Mon-Sat: 7:00 AM - 7:00 PM",
     weekend: "Sun: By Appointment",
   },
-  features: [
-    "Fully Insured",
-    "Interior & Exterior",
-    "Free Estimates",
-    "Bilingual — EN / FR",
-  ],
+  features: ["Fully Insured","Interior & Exterior","Free Estimates","Bilingual — EN / FR"],
   instagram: "https://instagram.com/upgrade_proottawa/",
   facebook: "https://www.facebook.com/share/1DuXE2e1M5/",
 };
 
-export const galleryImages = [
-  { src: img("/photos/tall-01.webp"), alt: "Freshly painted interior feature wall" },
-  { src: img("/photos/land-01.webp"), alt: "Open-concept living room with modern paint finish" },
-  { src: img("/photos/land-02.webp"), alt: "Crisp white kitchen cabinet repaint" },
-  { src: img("/photos/wide-01.webp"), alt: "Large living space with fresh neutral tones" },
-  { src: img("/photos/tall-02.webp"), alt: "Staircase and trim painted with a flawless finish" },
-  { src: img("/photos/land-03.webp"), alt: "Dining room with precision cut-in work" },
-  { src: img("/photos/wide-02.webp"), alt: "Exterior siding refresh in Ottawa" },
-  { src: img("/photos/tall-03.webp"), alt: "Bedroom feature wall with a clean modern hue" },
-  { src: img("/photos/land-04.webp"), alt: "Spacious kitchen after full cabinet repaint" },
-  { src: img("/photos/tall-04.webp"), alt: "Bathroom refresh with new trim and ceiling" },
+/* ------------------------------------------------------------------
+   All 26 photos, grouped by aspect
+   ------------------------------------------------------------------ */
+export const wide = [1,2,3,4,5,6,7].map((n) => img(`/photos/wide-${String(n).padStart(2,"0")}.webp`));
+export const land = [1,2,3,4,5,6].map((n) => img(`/photos/land-${String(n).padStart(2,"0")}.webp`));
+export const tall = [1,2,3,4,5,6,7,8,9,10].map((n) => img(`/photos/tall-${String(n).padStart(2,"0")}.webp`));
+export const vert = [1,2,3].map((n) => img(`/photos/vert-${String(n).padStart(2,"0")}.webp`));
+
+/* Hero allocations */
+export const heroImages = {
+  main:    wide[0],      // full-bleed hero backdrop
+  portrait: tall[0],     // hero inset portrait card
+  thumbs:  [tall[1], tall[2], tall[3]],
+};
+
+/* Section backdrops */
+export const sectionImages = {
+  stats:    wide[1],
+  whyUs:    vert[0],     // tall portrait for "the crew" side
+  parallax: wide[2],
+  cta:      wide[6],
+  area:     wide[5],
+  process:  [vert[1], vert[2], tall[4], tall[5]],
+};
+
+/* Service cards — 9 photos, one per service (matches services.ts order) */
+export const servicePhotos = [
+  tall[6],   // interior
+  wide[3],   // exterior
+  land[0],   // cabinets
+  tall[7],   // trim
+  tall[8],   // drywall
+  tall[9],   // wallpaper
+  land[1],   // decks
+  wide[4],   // commercial
+  land[2],   // color
 ];
 
-export const parallaxImage = img("/photos/wide-03.webp");
-export const heroImages = {
-  tall: img("/photos/tall-05.webp"),
-  topRight: img("/photos/land-05.webp"),
-  bottomRight: img("/photos/land-06.webp"),
-};
+/* Big gallery — the remaining work shots */
+export const galleryImages = [
+  { src: land[3], alt: "Interior paint — Ottawa home" },
+  { src: land[4], alt: "Kitchen cabinet repaint" },
+  { src: land[5], alt: "Feature wall" },
+  { src: tall[0], alt: "Clean trim work" },
+  { src: tall[1], alt: "Bedroom repaint" },
+  { src: tall[2], alt: "Hallway refresh" },
+  { src: tall[3], alt: "Stair & banister" },
+  { src: wide[0], alt: "Full room after" },
+  { src: wide[3], alt: "Exterior siding project" },
+  { src: land[0], alt: "Kitchen finished" },
+];
+
+/* Back-compat */
+export const parallaxImage = sectionImages.parallax;

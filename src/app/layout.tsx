@@ -27,19 +27,17 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@300..700&display=swap"
           rel="stylesheet"
         />
       </head>
-
-      <body className="font-body antialiased min-h-full flex flex-col paper-grain">
+      <body className="font-body antialiased min-h-full flex flex-col grain">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-paint-ink focus:text-paint-bone focus:px-4 focus:py-2 focus:font-body focus:font-medium"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-paint-ink focus:text-paint-cream focus:px-4 focus:py-2"
         >
           Skip to main content
         </a>
-
         <LenisProvider>
           <Navbar />
           <main id="main-content" className="flex-1">
@@ -47,7 +45,6 @@ export default function RootLayout({
           </main>
           <Footer />
         </LenisProvider>
-
         <StickyPhone />
         <BackToTop />
         <LeadCollector />

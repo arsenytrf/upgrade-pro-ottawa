@@ -1,97 +1,91 @@
 @import "tailwindcss";
 
 /* ============================================================
-   UPGRADE PRO — Design System
-   Editorial paint-swatch aesthetic
-   Bone backgrounds, ink body, named-paint accents, serif display
+   UPGRADE PRO — Design System v3
+   Rugged contractor · photos carry every section
+   Archivo (heavy condensed) + Inter (body)
    Tailwind CSS v4 | @theme inline
    ============================================================ */
 
 @theme inline {
-  /* ------------------------------------------------------------
-     Sky = INK (near-black primary — body text + dark blocks)
-     ------------------------------------------------------------ */
-  --color-sky-50:  #FAF8F4;
-  --color-sky-100: #F0ECE3;
-  --color-sky-200: #D9D3C5;
-  --color-sky-300: #A8A193;
-  --color-sky-400: #5D574C;
-  --color-sky-500: #1F1C17;
-  --color-sky-600: #181510;
-  --color-sky-700: #13100C;
-  --color-sky-800: #0D0B08;
-  --color-sky-900: #070604;
-  --color-sky-950: #040302;
+  /* --------------------------------------------------
+     Sky = INK primary (deep warm black)
+     -------------------------------------------------- */
+  --color-sky-50:  #F7F3EA;
+  --color-sky-100: #EADFC7;
+  --color-sky-200: #D3C299;
+  --color-sky-300: #A69069;
+  --color-sky-400: #6E5D3E;
+  --color-sky-500: #14110D;
+  --color-sky-600: #0C0A07;
+  --color-sky-700: #080604;
+  --color-sky-800: #050402;
+  --color-sky-900: #030201;
+  --color-sky-950: #020100;
 
-  /* ------------------------------------------------------------
-     Sand = BONE (warm cream surfaces)
-     ------------------------------------------------------------ */
-  --color-sand-50:  #FBF7EE;
-  --color-sand-100: #F5F0E6;
-  --color-sand-200: #ECE4D2;
-  --color-sand-300: #DCD0B5;
-  --color-sand-400: #C0B08E;
-  --color-sand-500: #8E8064;
-  --color-sand-600: #5F5442;
+  /* --------------------------------------------------
+     Sand = cream surface (primed drywall)
+     -------------------------------------------------- */
+  --color-sand-50:  #F6F1E6;
+  --color-sand-100: #EFE8DA;
+  --color-sand-200: #E6DDC9;
+  --color-sand-300: #D5C8AB;
+  --color-sand-400: #B7A682;
+  --color-sand-500: #83755A;
+  --color-sand-600: #57493A;
 
-  /* ------------------------------------------------------------
+  /* --------------------------------------------------
      Slate = warm neutrals
-     ------------------------------------------------------------ */
-  --color-slate-50:  #F7F3EB;
-  --color-slate-100: #EEE9DD;
-  --color-slate-200: #DDD5C4;
-  --color-slate-300: #B7AD98;
-  --color-slate-400: #847B66;
-  --color-slate-500: #554E3E;
-  --color-slate-600: #3B362B;
-  --color-slate-700: #27231B;
-  --color-slate-800: #161310;
-  --color-slate-900: #0B0A07;
-  --color-slate-950: #040302;
+     -------------------------------------------------- */
+  --color-slate-50:  #F4EFE4;
+  --color-slate-100: #E9E1CF;
+  --color-slate-200: #D3C7A9;
+  --color-slate-300: #ABA181;
+  --color-slate-400: #7F7658;
+  --color-slate-500: #524B38;
+  --color-slate-600: #35301F;
+  --color-slate-700: #211E13;
+  --color-slate-800: #13110B;
+  --color-slate-900: #0A0905;
+  --color-slate-950: #050403;
 
-  /* ------------------------------------------------------------
-     Named paint colors — the brand's signature swatches
-     Used for section accents, swatch cards, CTA blocks
-     ------------------------------------------------------------ */
-  --color-paint-cloud:      #E7DFCE;
-  --color-paint-bone:       #F5F0E6;
-  --color-paint-mushroom:   #BDB09A;
-  --color-paint-oak:        #8B5E34;
-  --color-paint-clay:       #B8533F;
-  --color-paint-moss:       #3F5A3B;
-  --color-paint-navy:       #1E2E4A;
-  --color-paint-charcoal:   #2A2826;
-  --color-paint-ink:        #1F1C17;
+  /* --------------------------------------------------
+     Named brand / paint colors (accent fields)
+     -------------------------------------------------- */
+  --color-paint-cream:    #EFE8DA;
+  --color-paint-bone:     #E6DDC9;
+  --color-paint-ink:      #14110D;
+  --color-paint-charcoal: #221E18;
+  --color-paint-clay:     #C25A3E;
+  --color-paint-rust:     #8E3A22;
+  --color-paint-moss:     #2D4A3A;
+  --color-paint-navy:     #132238;
+  --color-paint-tan:      #B7A682;
 
-  /* ------------------------------------------------------------
-     Fonts — Fraunces (display serif, italic headlines) + Inter (body)
-     ------------------------------------------------------------ */
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  /* --------------------------------------------------
+     Fonts
+     -------------------------------------------------- */
+  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
   --font-body:    "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  /* ------------------------------------------------------------
-     Border radius — soft, editorial (NO sharp industrial clips)
-     ------------------------------------------------------------ */
-  --radius-xs:  2px;
-  --radius-sm:  4px;
-  --radius-md:  8px;
-  --radius-lg:  12px;
-  --radius-xl:  20px;
-  --radius-2xl: 28px;
-  --radius-3xl: 40px;
+  /* --------------------------------------------------
+     Border radius — tight, not soft
+     -------------------------------------------------- */
+  --radius-xs:  0px;
+  --radius-sm:  2px;
+  --radius-md:  4px;
+  --radius-lg:  6px;
+  --radius-xl:  8px;
+  --radius-2xl: 12px;
+  --radius-3xl: 16px;
   --radius-4xl: 9999px;
 
-  /* ------------------------------------------------------------
+  /* --------------------------------------------------
      Animations
-     ------------------------------------------------------------ */
-  --animate-marquee:     marquee 60s linear infinite;
-  --animate-fade-up:     fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-  --animate-color-pulse: color-pulse 12s ease-in-out infinite;
+     -------------------------------------------------- */
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-fade-up: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-
-/* ============================================================
-   KEYFRAMES
-   ============================================================ */
 
 @keyframes marquee {
   0%   { transform: translateX(0); }
@@ -103,25 +97,11 @@
   100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes color-pulse {
-  0%, 100% { background-color: var(--color-paint-navy); }
-  16%      { background-color: var(--color-paint-moss); }
-  33%      { background-color: var(--color-paint-oak); }
-  50%      { background-color: var(--color-paint-clay); }
-  66%      { background-color: var(--color-paint-charcoal); }
-  83%      { background-color: var(--color-paint-mushroom); }
-}
-
 /* ============================================================
    BASE
    ============================================================ */
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
+*, *::before, *::after { box-sizing: border-box; }
 html, body { overflow-x: hidden; }
 
 html {
@@ -131,39 +111,38 @@ html {
 }
 
 body {
-  background-color: var(--color-paint-bone);
+  background-color: var(--color-paint-cream);
   color: var(--color-paint-ink);
   font-family: var(--font-body);
-  font-feature-settings: "ss01", "cv11";
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-optical-sizing: auto;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
 }
 
 ::selection {
   background-color: var(--color-paint-clay);
-  color: var(--color-paint-bone);
+  color: var(--color-paint-cream);
 }
 
 /* ============================================================
-   SCROLLBAR — warm + quiet
+   SCROLLBAR
    ============================================================ */
 
 ::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: var(--color-paint-cloud); }
+::-webkit-scrollbar-track { background: var(--color-paint-bone); }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-paint-mushroom);
-  border-radius: 9999px;
-  border: 2px solid var(--color-paint-cloud);
+  background: var(--color-paint-ink);
+  border: 2px solid var(--color-paint-bone);
 }
-::-webkit-scrollbar-thumb:hover { background: var(--color-paint-ink); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-paint-clay); }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-paint-mushroom) var(--color-paint-cloud);
+  scrollbar-color: var(--color-paint-ink) var(--color-paint-bone);
 }
 
 /* ============================================================
@@ -177,94 +156,135 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-scrolling iframe { pointer-events: none; }
 
 /* ============================================================
-   UTILITY CLASSES
+   UTILITY CLASSES — rugged contractor
    ============================================================ */
 
-/* Editorial display — big italic serif */
-.editorial-display {
+/* Heavy condensed display — use for punchy headers */
+.display-heavy {
   font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 300;
-  letter-spacing: -0.035em;
-  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.88;
+  font-stretch: 87.5%;
 }
 
-.editorial-display-upright {
+.display-cond {
   font-family: var(--font-display);
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: -0.025em;
-  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  font-stretch: 87.5%;
+  text-transform: uppercase;
 }
 
-/* Tiny all-caps metadata label (like magazine copy) */
-.label-eyebrow {
-  font-family: var(--font-body);
-  font-weight: 500;
+/* Stenciled all-caps meta label */
+.stencil {
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
-/* Serif numeral — for section numbering */
-.serif-numeral {
+/* Hard edge button */
+.btn-hard {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 14px 22px;
   font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 300;
-  letter-spacing: -0.04em;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Pill button */
+/* Photo hover — subtle scale + bright overlay lift */
+.photo-hover { overflow: hidden; }
+.photo-hover img {
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease;
+}
+.photo-hover:hover img {
+  transform: scale(1.04);
+}
+
+/* Tick-tape — contractor-style dashed divider */
+.tick-tape {
+  height: 10px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-paint-ink) 0 14px,
+    transparent 14px 22px
+  );
+  opacity: 0.8;
+}
+
+/* Back-compat aliases (for sub-pages still using old utility names) */
+.editorial-display,
+.editorial-display-upright {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.88;
+  font-stretch: 87.5%;
+  text-transform: uppercase;
+}
+.editorial-display em, .editorial-display-upright em { font-style: normal; color: var(--color-paint-clay); }
+
+.label-eyebrow {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
 .pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border-radius: 9999px;
-  padding: 0.875rem 1.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  padding: 14px 22px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Swatch card with hovering color inset */
-.swatch-card {
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+.serif-numeral {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.04em;
 }
 
-.swatch-card:hover { transform: translateY(-4px); }
-
-/* Image frame — soft warm shadow (no hard clip-paths) */
 .image-frame {
   position: relative;
   overflow: hidden;
-  border-radius: 2px;
-  box-shadow:
-    0 1px 2px rgba(31, 28, 23, 0.04),
-    0 16px 40px rgba(31, 28, 23, 0.08);
+  border-radius: 0;
 }
 
-/* Divider — dotted like a paint plan */
 .paint-divider {
   height: 1px;
-  background-image: linear-gradient(to right,
-    var(--color-paint-ink) 50%, transparent 50%);
-  background-size: 6px 1px;
-  opacity: 0.25;
+  background-image: repeating-linear-gradient(90deg, var(--color-paint-ink) 0 10px, transparent 10px 16px);
+  opacity: 0.3;
 }
 
-/* Grain — very subtle paper texture */
-.paper-grain::before {
+/* Grain overlay */
+.grain::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-size: 180px 180px;
+  background-size: 200px 200px;
   mix-blend-mode: multiply;
 }
 

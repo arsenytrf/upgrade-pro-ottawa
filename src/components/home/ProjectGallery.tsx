@@ -3,86 +3,80 @@
 import { galleryImages } from "@/data/company";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
-/* Editorial captions — named like magazine plates */
-const CAPTIONS: { plate: string; title: string; room: string; color: string }[] = [
-  { plate: "Plate 01", title: "Living Room Refresh",  room: "Interior · Ottawa",     color: "Cloud · No. 07" },
-  { plate: "Plate 02", title: "Galley Kitchen",       room: "Cabinets · Kanata",     color: "Kendall · No. 05" },
-  { plate: "Plate 03", title: "Dining Feature Wall",  room: "Interior · Gatineau",   color: "Ottawa Navy · No. 01" },
-  { plate: "Plate 04", title: "Stairwell & Trim",     room: "Millwork · Nepean",     color: "Bone · No. 08" },
-  { plate: "Plate 05", title: "Open Concept Ground",  room: "Interior · Orleans",    color: "Mushroom · No. 06" },
-  { plate: "Plate 06", title: "Heritage Siding",      room: "Exterior · Aylmer",     color: "Studio Moss · No. 02" },
-  { plate: "Plate 07", title: "Bedroom Repaint",      room: "Interior · Barrhaven",  color: "Cloud · No. 07" },
-  { plate: "Plate 08", title: "Hallway & Baseboards", room: "Trim · Ottawa",         color: "Ink · No. 09" },
-  { plate: "Plate 09", title: "Cabinet Refinish",     room: "Cabinets · Gatineau",   color: "Heritage Oak · No. 03" },
-  { plate: "Plate 10", title: "Bathroom Redo",        room: "Interior · Stittsville",color: "Bone · No. 08" },
+const CAPTIONS = [
+  { title: "Living Room Refresh", place: "Ottawa · Interior" },
+  { title: "Galley Kitchen",      place: "Kanata · Cabinets" },
+  { title: "Dining Feature Wall", place: "Gatineau · Interior" },
+  { title: "Stairs & Trim",       place: "Nepean · Millwork" },
+  { title: "Open Concept Main",   place: "Orleans · Interior" },
+  { title: "Heritage Siding",     place: "Aylmer · Exterior" },
+  { title: "Bedroom Repaint",     place: "Barrhaven · Interior" },
+  { title: "Hallway & Baseboards",place: "Ottawa · Trim" },
+  { title: "Cabinet Refinish",    place: "Gatineau · Cabinets" },
+  { title: "Bathroom Redo",       place: "Stittsville · Interior" },
+];
+
+/* Custom-span layout for editorial rhythm, but strictly photo-first */
+const SPANS = [
+  "md:col-span-4 md:row-span-2 aspect-auto",
+  "md:col-span-2 aspect-[3/4]",
+  "md:col-span-2 aspect-[3/4]",
+  "md:col-span-3 aspect-[4/3]",
+  "md:col-span-3 aspect-[4/3]",
+  "md:col-span-4 md:row-span-2 aspect-auto",
+  "md:col-span-2 aspect-[3/4]",
+  "md:col-span-2 aspect-[3/4]",
+  "md:col-span-3 aspect-[4/3]",
+  "md:col-span-3 aspect-[4/3]",
 ];
 
 export default function ProjectGallery() {
   return (
-    <section className="relative bg-paint-cloud py-24 md:py-32 lg:py-40 border-t border-paint-ink/10">
+    <section className="relative bg-paint-bone py-24 md:py-32">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14">
 
-        {/* Editorial masthead */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-14 md:mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 md:mb-16">
           <div className="lg:col-span-8">
             <ScrollReveal>
-              <span className="label-eyebrow text-paint-ink/60">§ 02 — The Portfolio</span>
+              <span className="stencil text-paint-clay">§ 02 — Recent Work</span>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <h2 className="mt-4 editorial-display-upright text-5xl md:text-6xl lg:text-7xl text-paint-ink leading-[0.95]">
-                Recent work, <em className="editorial-display">plated like a catalogue.</em>
+              <h2 className="mt-4 display-heavy uppercase text-paint-ink text-[48px] sm:text-[72px] md:text-[92px] lg:text-[112px] leading-[0.9]">
+                Real jobs. <br /><span className="text-paint-clay">No staging.</span>
               </h2>
             </ScrollReveal>
           </div>
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 lg:pb-4">
             <ScrollReveal delay={0.2}>
-              <p className="text-paint-ink/70 leading-relaxed">
-                Ten of Vasyl&rsquo;s recent jobs across the National Capital Region.
-                Rooms, cabinets, sidings, trim — no staging, no stock.
+              <p className="text-paint-ink/75 leading-relaxed">
+                Everything here was painted by Vasyl and the crew. Shot on-site, no filters,
+                no stock — the actual finish you&rsquo;d get.
               </p>
             </ScrollReveal>
           </div>
         </div>
 
-        {/* Irregular editorial grid */}
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-5">
-          {galleryImages.map((img, i) => {
-            const caption = CAPTIONS[i] ?? CAPTIONS[0];
-            /* Custom spans for a magazine feel */
-            const SPANS = [
-              "md:col-span-4 aspect-[4/3]",    // 0 — big feature
-              "md:col-span-2 aspect-[3/4]",    // 1
-              "md:col-span-3 aspect-[4/3]",    // 2
-              "md:col-span-3 aspect-[4/3]",    // 3
-              "md:col-span-2 aspect-[3/4]",    // 4
-              "md:col-span-4 aspect-[4/3]",    // 5 — big feature
-              "md:col-span-3 aspect-[4/3]",    // 6
-              "md:col-span-3 aspect-[4/3]",    // 7
-              "md:col-span-2 aspect-[3/4]",    // 8
-              "md:col-span-4 aspect-[4/3]",    // 9
-            ];
+        <div className="grid grid-cols-2 md:grid-cols-6 auto-rows-[200px] md:auto-rows-[220px] gap-3 md:gap-4">
+          {galleryImages.map((g, i) => {
+            const cap = CAPTIONS[i] ?? { title: "Project", place: "" };
             return (
-              <ScrollReveal key={i} delay={i * 0.04} className={SPANS[i] ?? "md:col-span-3 aspect-[4/3]"}>
-                <figure className="group h-full relative image-frame">
+              <ScrollReveal
+                key={i}
+                delay={i * 0.04}
+                className={SPANS[i] ?? "md:col-span-2 aspect-[4/3]"}
+              >
+                <figure className="relative h-full w-full group photo-hover overflow-hidden bg-paint-ink">
                   <img
-                    src={img.src}
-                    alt={img.alt}
+                    src={g.src}
+                    alt={g.alt}
                     loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
-                  <figcaption className="absolute left-0 right-0 bottom-0 p-5 md:p-6 bg-gradient-to-t from-paint-ink/85 via-paint-ink/40 to-transparent">
-                    <div className="flex items-end justify-between gap-4">
-                      <div className="min-w-0">
-                        <p className="label-eyebrow text-paint-bone/70">{caption.plate}</p>
-                        <p className="mt-1.5 editorial-display-upright text-xl md:text-2xl text-paint-bone leading-tight truncate">
-                          {caption.title}
-                        </p>
-                        <p className="mt-1.5 text-xs text-paint-bone/70">{caption.room}</p>
-                      </div>
-                      <p className="hidden sm:block label-eyebrow text-paint-bone/70 whitespace-nowrap">
-                        {caption.color}
-                      </p>
-                    </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-paint-ink/85 via-paint-ink/20 to-transparent opacity-90" />
+                  <figcaption className="absolute left-4 right-4 bottom-4 text-paint-cream">
+                    <p className="stencil text-paint-clay">No. {String(i + 1).padStart(2, "0")}</p>
+                    <p className="mt-1 display-cond text-xl md:text-2xl leading-tight">{cap.title}</p>
+                    <p className="text-xs text-paint-cream/70 mt-1">{cap.place}</p>
                   </figcaption>
                 </figure>
               </ScrollReveal>

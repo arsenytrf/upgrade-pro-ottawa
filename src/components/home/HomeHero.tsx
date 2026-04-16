@@ -1,32 +1,11 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { Phone, ArrowUpRight } from "lucide-react";
+import { useRef, useEffect } from "react";
+import { Phone, ArrowRight } from "lucide-react";
 import { company, heroImages } from "@/data/company";
-import BookingWizard from "@/components/home/BookingWizard";
-
-const PAINT_COLORS = [
-  { name: "Ottawa Navy", hex: "#1E2E4A", code: "No. 01" },
-  { name: "Studio Moss", hex: "#3F5A3B", code: "No. 02" },
-  { name: "Heritage Oak", hex: "#8B5E34", code: "No. 03" },
-  { name: "Kiln Clay",   hex: "#B8533F", code: "No. 04" },
-  { name: "Kendall Charcoal", hex: "#2A2826", code: "No. 05" },
-  { name: "Mushroom",    hex: "#BDB09A", code: "No. 06" },
-];
 
 export default function HomeHero() {
   const heroRef = useRef<HTMLElement>(null);
-  const [colorIndex, setColorIndex] = useState(0);
-
-  useEffect(() => {
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced) return;
-
-    const id = setInterval(() => {
-      setColorIndex((i) => (i + 1) % PAINT_COLORS.length);
-    }, 3600);
-    return () => clearInterval(id);
-  }, []);
 
   useEffect(() => {
     const el = heroRef.current;
@@ -40,158 +19,116 @@ export default function HomeHero() {
       if (!el) return;
       ctx = gsap.context(() => {
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-        tl.fromTo("[data-eyebrow]",   { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6 })
-          .fromTo("[data-headline] > *", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.9, stagger: 0.12 }, "-=0.3")
-          .fromTo("[data-sub]",       { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6 }, "-=0.4")
-          .fromTo("[data-actions]",   { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3")
-          .fromTo("[data-color-card]",{ opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 1 }, "-=0.8");
+        tl.fromTo("[data-hero-bg]",      { scale: 1.08 }, { scale: 1, duration: 1.6 }, 0)
+          .fromTo("[data-hero-stamp]",    { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6 }, 0.15)
+          .fromTo("[data-hero-title] > *",{ opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.9, stagger: 0.09 }, 0.25)
+          .fromTo("[data-hero-sub]",      { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6 }, "-=0.5")
+          .fromTo("[data-hero-cta]",      { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5 }, "-=0.35")
+          .fromTo("[data-hero-card]",     { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.9 }, "-=0.7")
+          .fromTo("[data-hero-stats]",    { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, "-=0.4");
       }, el);
     }
     init();
     return () => { ctx?.revert(); };
   }, []);
 
-  const current = PAINT_COLORS[colorIndex];
-
   return (
-    <section ref={heroRef} className="relative bg-paint-bone">
-      {/* ───────────── Top editorial bar ───────────── */}
-      <div className="border-b border-paint-ink/10">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14 py-3 flex items-center justify-between gap-6">
-          <div className="flex items-center gap-4 min-w-0">
-            <span className="label-eyebrow text-paint-ink/50 hidden sm:inline">Est. Ottawa · Gatineau</span>
-            <span className="paint-divider w-16 hidden md:block" />
-            <span className="label-eyebrow text-paint-ink/50 truncate">Bilingual · Fully Insured · On Bone</span>
-          </div>
-          <span className="label-eyebrow text-paint-ink/50 hidden lg:inline">Vol. 01 — The Paint Edition</span>
-        </div>
-      </div>
+    <section ref={heroRef} className="relative bg-paint-ink text-paint-cream overflow-hidden">
+      {/* Background photo */}
+      <div
+        data-hero-bg
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroImages.main})` }}
+        aria-hidden="true"
+      />
+      {/* Gradient overlay — darker on left where copy sits */}
+      <div className="absolute inset-0 bg-gradient-to-r from-paint-ink via-paint-ink/85 to-paint-ink/35" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/30 to-transparent" aria-hidden="true" />
 
-      {/* ───────────── Hero grid ───────────── */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14 pt-10 md:pt-16 lg:pt-20 pb-16 md:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-end">
+      {/* Content */}
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14 pt-24 md:pt-32 lg:pt-40 pb-24 md:pb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
 
-          {/* Left: editorial copy column */}
-          <div className="lg:col-span-7">
-            <div data-eyebrow className="flex items-center gap-3 mb-8">
-              <span className="inline-block w-2.5 h-2.5 rounded-full" style={{ backgroundColor: current.hex }} />
-              <span className="label-eyebrow text-paint-ink/70">Feature Color · {current.code} — {current.name}</span>
+          {/* Left — punchy headline */}
+          <div className="lg:col-span-8">
+            {/* Stamp */}
+            <div data-hero-stamp className="inline-flex items-center gap-3 mb-10 border border-paint-cream/25 px-3 py-2">
+              <span className="w-2 h-2 bg-paint-clay rounded-full animate-pulse" />
+              <span className="stencil text-paint-cream/85">
+                Ottawa · Gatineau Painters
+              </span>
             </div>
 
-            <h1 data-headline className="editorial-display text-paint-ink">
-              <span className="block text-[64px] sm:text-[88px] md:text-[112px] lg:text-[140px] xl:text-[168px]">
-                Paint,
-              </span>
-              <span className="block text-[64px] sm:text-[88px] md:text-[112px] lg:text-[140px] xl:text-[168px] editorial-display-upright -mt-2">
-                done <em className="editorial-display">properly.</em>
-              </span>
+            <h1 data-hero-title className="display-heavy uppercase text-paint-cream">
+              <span className="block text-[68px] sm:text-[96px] md:text-[128px] lg:text-[168px] xl:text-[200px]">Interior.</span>
+              <span className="block text-[68px] sm:text-[96px] md:text-[128px] lg:text-[168px] xl:text-[200px] text-paint-clay">Exterior.</span>
+              <span className="block text-[68px] sm:text-[96px] md:text-[128px] lg:text-[168px] xl:text-[200px]">Cabinets.</span>
             </h1>
 
-            <p
-              data-sub
-              className="mt-10 max-w-xl text-paint-ink/70 text-lg md:text-xl leading-[1.55] font-light"
-            >
-              Upgrade Pro is a small, bilingual painting studio serving Ottawa and
-              Gatineau. Interiors, exteriors, and kitchen cabinets — with the kind
-              of prep work most painters skip.
+            <p data-hero-sub className="mt-10 max-w-xl text-paint-cream/75 text-lg md:text-xl leading-[1.55]">
+              Real prep. Real paint. Done right the first time by a small, bilingual
+              crew serving Ottawa and Gatineau.
             </p>
 
-            <div data-actions className="mt-10 flex flex-wrap items-center gap-4">
-              <a
-                href="/contact"
-                className="pill bg-paint-ink text-paint-bone hover:bg-paint-navy"
-              >
-                Book a Free Estimate
-                <ArrowUpRight className="w-4 h-4" />
+            <div data-hero-cta className="mt-10 flex flex-wrap items-center gap-3">
+              <a href="/contact" className="btn-hard bg-paint-clay text-paint-cream hover:bg-paint-rust">
+                Get Free Estimate
+                <ArrowRight className="w-4 h-4" />
               </a>
-              <a
-                href={`tel:${company.phoneRaw}`}
-                className="pill border border-paint-ink/20 text-paint-ink hover:border-paint-ink hover:bg-paint-ink hover:text-paint-bone"
-              >
+              <a href={`tel:${company.phoneRaw}`} className="btn-hard border border-paint-cream/35 text-paint-cream hover:bg-paint-cream hover:text-paint-ink">
                 <Phone className="w-4 h-4" />
                 {company.phone}
               </a>
             </div>
+          </div>
 
-            {/* Signature line + photo strip */}
-            <div className="mt-14 md:mt-20 pt-8 border-t border-paint-ink/15 grid grid-cols-3 gap-3 max-w-xl">
-              {[heroImages.topRight, heroImages.bottomRight, heroImages.tall].map((src, i) => (
-                <div key={i} className="relative aspect-[3/4] image-frame">
+          {/* Right — vertical job card */}
+          <div className="lg:col-span-4">
+            <div data-hero-card className="relative aspect-[3/4] overflow-hidden shadow-2xl shadow-black/50">
+              <img src={heroImages.portrait} alt="Recent Ottawa paint job" className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/20 to-transparent" />
+              {/* Job tag */}
+              <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-paint-cream">
+                <span className="stencil bg-paint-ink/70 backdrop-blur px-2.5 py-1.5">Job · No. 147</span>
+                <span className="stencil bg-paint-clay px-2.5 py-1.5">Interior</span>
+              </div>
+              <div className="absolute left-5 right-5 bottom-5 text-paint-cream">
+                <p className="stencil text-paint-cream/70 mb-1.5">Kanata</p>
+                <p className="display-cond text-2xl md:text-3xl leading-tight">
+                  Whole-home repaint,<br />
+                  <span className="text-paint-clay">3 coats, Benjamin Moore.</span>
+                </p>
+              </div>
+            </div>
+
+            {/* Thumb strip */}
+            <div className="mt-4 grid grid-cols-3 gap-2">
+              {heroImages.thumbs.map((src, i) => (
+                <div key={i} className="relative aspect-[3/4] overflow-hidden photo-hover">
                   <img src={src} alt="" className="absolute inset-0 w-full h-full object-cover" />
                 </div>
               ))}
             </div>
           </div>
+        </div>
 
-          {/* Right: rotating color field with framed photo */}
-          <div className="lg:col-span-5">
-            <div
-              data-color-card
-              className="relative aspect-[4/5] image-frame transition-colors duration-[1800ms] ease-in-out"
-              style={{ backgroundColor: current.hex }}
-            >
-              {/* Photo breathing through a fraction of the block */}
-              <div className="absolute inset-[14%] image-frame">
-                <img
-                  src={heroImages.tall}
-                  alt="Interior paint work — Ottawa"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Bottom-left chip */}
-              <div className="absolute bottom-5 left-5 bg-paint-bone/95 backdrop-blur-sm px-4 py-3 rounded-xs">
-                <p className="serif-numeral text-2xl text-paint-ink leading-none">{current.code}</p>
-                <p className="mt-1.5 label-eyebrow text-paint-ink/70">{current.name}</p>
-              </div>
-
-              {/* Top-right index */}
-              <div className="absolute top-5 right-5 text-paint-bone/80">
-                <span className="label-eyebrow">Swatch</span>
-                <span className="block serif-numeral text-3xl italic mt-0.5">{String(colorIndex + 1).padStart(2, "0")}<span className="text-paint-bone/40">/06</span></span>
-              </div>
+        {/* Inline stat strip overlaid at hero bottom */}
+        <div data-hero-stats className="mt-16 md:mt-24 border-t border-paint-cream/15 pt-8 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          {[
+            { n: "500+",    l: "Homes Painted" },
+            { n: "100%",    l: "Satisfaction" },
+            { n: "EN / FR", l: "Bilingual" },
+            { n: "Free",    l: "Written Quotes" },
+          ].map((s) => (
+            <div key={s.l} className="flex items-baseline gap-3">
+              <span className="display-heavy text-paint-clay text-4xl md:text-5xl lg:text-6xl">{s.n}</span>
+              <span className="stencil text-paint-cream/60">{s.l}</span>
             </div>
-
-            {/* Color dots selector */}
-            <div className="mt-5 flex items-center gap-2">
-              {PAINT_COLORS.map((c, i) => (
-                <button
-                  key={c.code}
-                  onClick={() => setColorIndex(i)}
-                  aria-label={c.name}
-                  className="relative h-7 w-7 rounded-full transition-transform hover:scale-110"
-                  style={{ backgroundColor: c.hex }}
-                >
-                  {i === colorIndex && (
-                    <span className="absolute inset-[-3px] rounded-full border border-paint-ink/60" />
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
-      {/* ───────────── Booking wizard (below fold, editorial frame) ───────────── */}
-      <div className="bg-paint-cloud border-y border-paint-ink/10">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14 py-16 md:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-4">
-              <span className="label-eyebrow text-paint-ink/60">The Booking Desk</span>
-              <h2 className="mt-3 editorial-display-upright text-4xl md:text-5xl text-paint-ink">
-                Tell us about<br /><em className="editorial-display">your walls.</em>
-              </h2>
-              <p className="mt-5 text-paint-ink/70 leading-relaxed">
-                A quick five-step form. We&rsquo;ll come by, measure, and send a
-                written quote with the paint brand, coats, and timeline spelled out.
-              </p>
-            </div>
-            <div className="lg:col-span-8">
-              <BookingWizard />
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className="tick-tape" />
     </section>
   );
 }

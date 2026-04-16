@@ -13,7 +13,7 @@ interface MobileDrawerProps {
 }
 
 const linkVariants = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 14 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
@@ -39,7 +39,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[60] bg-paint-ink/40 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 z-[60] bg-paint-ink/60 backdrop-blur-sm lg:hidden"
             onClick={onClose}
           />
           <motion.aside
@@ -48,41 +48,30 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] as const }}
-            className="fixed top-0 right-0 bottom-0 z-[70] w-[86%] max-w-sm bg-paint-bone flex flex-col lg:hidden"
+            className="fixed top-0 right-0 bottom-0 z-[70] w-[86%] max-w-sm bg-paint-ink text-paint-cream flex flex-col lg:hidden"
           >
-            <div className="flex items-center justify-between px-6 py-5">
+            <div className="flex items-center justify-between px-6 py-5 border-b border-paint-cream/10">
               <Link href="/" onClick={onClose} className="flex items-center gap-3">
-                <span className="flex items-center gap-0.5">
-                  <span className="block w-2 h-2 rounded-full bg-paint-navy" />
-                  <span className="block w-2 h-2 rounded-full bg-paint-oak" />
-                  <span className="block w-2 h-2 rounded-full bg-paint-clay" />
+                <span className="w-9 h-9 bg-paint-clay flex items-center justify-center">
+                  <span className="display-heavy text-paint-cream text-sm leading-none">UP</span>
                 </span>
-                <span className="editorial-display-upright text-xl tracking-tight text-paint-ink">
-                  Upgrade <em className="editorial-display">Pro</em>
-                </span>
+                <div className="leading-tight">
+                  <span className="display-cond text-paint-cream text-lg block">UPGRADE PRO</span>
+                  <span className="stencil text-paint-cream/55 block">Ottawa Painters</span>
+                </div>
               </Link>
-              <button
-                onClick={onClose}
-                className="p-2 text-paint-ink/60 hover:text-paint-ink"
-                aria-label="Close menu"
-              >
+              <button onClick={onClose} className="p-2 text-paint-cream/60 hover:text-paint-cream" aria-label="Close menu">
                 <X className="h-6 w-6" />
               </button>
             </div>
 
-            <div className="flex h-px">
-              {["#1E2E4A","#3F5A3B","#8B5E34","#B8533F","#2A2826","#BDB09A"].map((h) => (
-                <span key={h} className="flex-1" style={{ backgroundColor: h }} />
-              ))}
-            </div>
-
-            <nav className="px-6 py-10 flex-1 flex flex-col justify-start gap-2">
+            <nav className="px-6 py-10 flex-1 flex flex-col gap-2">
               {navLinks.map((link, i) => (
                 <motion.div key={link.href} custom={i} variants={linkVariants} initial="hidden" animate="visible">
                   <Link
                     href={link.href}
                     onClick={onClose}
-                    className="block py-2 editorial-display-upright text-4xl sm:text-5xl text-paint-ink hover:text-paint-navy transition-colors"
+                    className="block py-2 display-heavy uppercase text-5xl text-paint-cream hover:text-paint-clay transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -90,24 +79,20 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
               ))}
             </nav>
 
-            <div className="px-6 py-6 border-t border-paint-ink/15 space-y-3">
-              <a href={`tel:${company.phoneRaw}`} className="flex items-center gap-3 text-paint-ink/80 hover:text-paint-ink">
+            <div className="px-6 py-6 border-t border-paint-cream/15 space-y-3">
+              <a href={`tel:${company.phoneRaw}`} className="flex items-center gap-3 text-paint-cream/80 hover:text-paint-cream">
                 <Phone className="h-4 w-4" />
                 <span className="text-sm font-medium">{company.phone}</span>
               </a>
-              <div className="flex items-center gap-3 text-paint-ink/70">
+              <div className="flex items-center gap-3 text-paint-cream/70">
                 <MapPin className="h-4 w-4" />
                 <span className="text-sm">{company.location}</span>
               </div>
-              <div className="flex items-center gap-3 text-paint-ink/70">
+              <div className="flex items-center gap-3 text-paint-cream/70">
                 <Clock className="h-4 w-4" />
                 <span className="text-sm">{company.hours.weekday}</span>
               </div>
-              <Link
-                href={ctaLink.href}
-                onClick={onClose}
-                className="mt-4 pill bg-paint-ink text-paint-bone w-full justify-center"
-              >
+              <Link href={ctaLink.href} onClick={onClose} className="mt-4 btn-hard bg-paint-clay text-paint-cream w-full justify-center">
                 {ctaLink.label}
               </Link>
             </div>
