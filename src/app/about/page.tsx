@@ -34,7 +34,7 @@ export default function AboutPage() {
           style={{ backgroundImage: `url(${galleryImages[0].src})` }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/80 to-paint-ink/30" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/65 to-paint-ink/20" aria-hidden="true" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14 w-full pt-36 md:pt-44 pb-20 md:pb-28">
           <nav aria-label="Breadcrumb" className="mb-10 flex items-center gap-2 stencil text-paint-cream/60">
@@ -132,7 +132,7 @@ export default function AboutPage() {
           style={{ backgroundImage: `url(${galleryImages[5].src})` }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-paint-ink via-paint-ink/90 to-paint-ink" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-b from-paint-ink via-paint-ink/80 to-paint-ink" aria-hidden="true" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14">
           <ScrollReveal>

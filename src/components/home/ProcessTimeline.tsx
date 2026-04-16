@@ -14,7 +14,7 @@ export default function ProcessTimeline() {
   return (
     <section className="relative bg-paint-ink text-paint-cream py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-cover bg-top opacity-20" style={{ backgroundImage: `url(${sectionImages.parallax})` }} aria-hidden="true" />
-      <div className="absolute inset-0 bg-gradient-to-b from-paint-ink via-paint-ink/95 to-paint-ink" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-b from-paint-ink via-paint-ink/85 to-paint-ink" aria-hidden="true" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-14 md:mb-20">

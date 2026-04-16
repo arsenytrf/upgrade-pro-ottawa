@@ -47,7 +47,7 @@ export default function ServiceGrid() {
                   alt={service.title}
                   className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/55 to-paint-ink/15" />
+                <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/40 to-paint-ink/10" />
 
                 {/* Arrow */}
                 <div className="absolute top-5 right-5 text-paint-cream">

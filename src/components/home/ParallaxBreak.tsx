@@ -11,7 +11,7 @@ export default function ParallaxBreak() {
         style={{ backgroundImage: `url(${sectionImages.parallax})` }}
         aria-hidden="true"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/70 to-paint-ink/20" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/55 to-paint-ink/15" aria-hidden="true" />
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14 pb-16 md:pb-20">
         <span className="stencil text-paint-clay mb-5 block">The Studio</span>

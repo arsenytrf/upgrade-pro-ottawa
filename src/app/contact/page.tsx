@@ -36,7 +36,7 @@ export default function ContactPage() {
           style={{ backgroundImage: `url(${galleryImages[3].src})` }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/85 to-paint-ink/40" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/65 to-paint-ink/25" aria-hidden="true" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14 w-full pt-36 md:pt-44 pb-16 md:pb-24">
           <nav aria-label="Breadcrumb" className="mb-10 flex items-center gap-2 stencil text-paint-cream/60">

@@ -36,7 +36,7 @@ export default function ServicesPage() {
           style={{ backgroundImage: `url(${sectionImages.parallax})` }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/80 to-paint-ink/30" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/65 to-paint-ink/20" aria-hidden="true" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14 w-full pt-36 md:pt-44 pb-20 md:pb-28">
           <nav aria-label="Breadcrumb" className="mb-10 flex items-center gap-2 stencil text-paint-cream/60">
@@ -81,7 +81,7 @@ export default function ServicesPage() {
                       <div className={`lg:col-span-6 ${isEven ? "lg:order-2" : ""}`}>
                         <div className="relative aspect-[5/6] overflow-hidden photo-hover group bg-paint-ink">
                           <img src={photo} alt={service.title} className="absolute inset-0 w-full h-full object-cover" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-paint-ink/70 via-paint-ink/10 to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-paint-ink/55 via-paint-ink/8 to-transparent" />
                         </div>
                       </div>
 
@@ -123,7 +123,7 @@ export default function ServicesPage() {
       {/* ───────── Parallax quote ───────── */}
       <section className="relative h-[55vh] bg-paint-ink text-paint-cream flex items-end overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${galleryImages[2].src})` }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/70 to-paint-ink/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/55 to-paint-ink/15" />
         <div className="relative z-10 max-w-[1400px] w-full mx-auto px-6 md:px-10 lg:px-14 pb-16">
           <p className="stencil text-paint-clay mb-5">From the shop</p>
           <p className="display-heavy uppercase text-[38px] sm:text-[60px] md:text-[80px] leading-[0.92] max-w-4xl">
@@ -140,7 +140,7 @@ export default function ServicesPage() {
           style={{ backgroundImage: `url(${sectionImages.cta})` }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-paint-ink via-paint-ink/80 to-paint-ink/40" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-paint-ink via-paint-ink/65 to-paint-ink/30" aria-hidden="true" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14 py-24 md:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
             <div className="lg:col-span-8">

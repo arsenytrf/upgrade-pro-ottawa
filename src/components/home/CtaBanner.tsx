@@ -8,7 +8,7 @@ export default function CtaBanner() {
   return (
     <section aria-label="Call to action" className="relative bg-paint-ink text-paint-cream overflow-hidden">
       <div className="absolute inset-0 bg-cover bg-top opacity-60" style={{ backgroundImage: `url(${sectionImages.cta})` }} aria-hidden="true" />
-      <div className="absolute inset-0 bg-gradient-to-r from-paint-ink via-paint-ink/80 to-paint-ink/40" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-r from-paint-ink via-paint-ink/65 to-paint-ink/30" aria-hidden="true" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14 py-24 md:py-32 lg:py-40">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">

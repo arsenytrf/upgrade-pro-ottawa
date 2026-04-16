@@ -40,15 +40,18 @@ export const vert = [1,2,3].map((n) => img(`/photos/vert-${String(n).padStart(2,
 
 /* Hero allocations */
 export const heroImages = {
-  main:    wide[0],      // full-bleed hero backdrop
+  main:    land[5],      // white kitchen — full-bleed hero backdrop
   portrait: tall[0],     // hero inset portrait card
   thumbs:  [tall[1], tall[2], tall[3]],
 };
 
+/* Vasyl portrait */
+export const vasylPhoto = img("/photos/vasyl.webp");
+
 /* Section backdrops */
 export const sectionImages = {
   stats:    wide[1],
-  whyUs:    vert[0],     // tall portrait for "the crew" side
+  whyUs:    vasylPhoto,  // Vasyl portrait for "the crew" side
   parallax: wide[2],
   cta:      wide[6],
   area:     wide[5],
