@@ -23,42 +23,19 @@ export default function SectionHeader({
     right: "text-right ml-auto",
   };
 
-  return (
-    <div
-      className={cn("max-w-3xl mb-12 md:mb-16", alignClasses[align], className)}
-    >
-      {label && (
-        <div className="mb-3 md:mb-4">
-          <span
-            className={cn(
-              "inline-flex items-center gap-2 text-xs sm:text-sm font-display uppercase tracking-[0.2em] font-bold",
-              light ? "text-sky-600" : "text-sky-400"
-            )}
-          >
-            <span className={cn("w-8 h-[3px]", light ? "bg-gradient-to-r from-sky-500 to-sand-400" : "bg-gradient-to-r from-sky-400 to-sky-300")} aria-hidden="true" />
-            {label}
-          </span>
-        </div>
-      )}
+  const textColor = light ? "text-paint-ink" : "text-paint-bone";
+  const muted = light ? "text-paint-ink/60" : "text-paint-bone/60";
 
-      <h2
-        className={cn(
-          "font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05]",
-          light ? "text-slate-950" : "text-white"
-        )}
-      >
+  return (
+    <div className={cn("max-w-4xl mb-12 md:mb-16", alignClasses[align], className)}>
+      {label && (
+        <span className={cn("label-eyebrow", muted)}>{label}</span>
+      )}
+      <h2 className={cn("mt-4 editorial-display-upright text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95]", textColor)}>
         {title}
       </h2>
-
       {description && (
-        <p
-          className={cn(
-            "mt-4 md:mt-6 text-base sm:text-lg leading-relaxed max-w-2xl",
-            align === "center" && "mx-auto",
-            align === "right" && "ml-auto",
-            light ? "text-slate-500" : "text-slate-400"
-          )}
-        >
+        <p className={cn("mt-6 text-base sm:text-lg leading-relaxed max-w-2xl", muted, align === "center" && "mx-auto")}>
           {description}
         </p>
       )}

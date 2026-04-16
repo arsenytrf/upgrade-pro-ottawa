@@ -1,94 +1,90 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Home,
-  Hammer,
-  ChefHat,
-  DoorOpen,
-  Scissors,
-  TreePine,
-  Building2,
-  Palette,
-  PaintBucket,
-  Wrench,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { services } from "@/data/services";
-import SectionHeader from "@/components/shared/SectionHeader";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
-const iconMap: Record<string, React.ElementType> = {
-  PaintBucket,
-  Home,
-  ChefHat,
-  DoorOpen,
-  Hammer,
-  Scissors,
-  TreePine,
-  Building2,
-  Palette,
-};
+/* Each service paired with one of the six signature paint colors */
+const SERVICE_SWATCHES: { hex: string; name: string; code: string; onLight: boolean }[] = [
+  { hex: "#1E2E4A", name: "Ottawa Navy",     code: "No. 01", onLight: false },
+  { hex: "#8B5E34", name: "Heritage Oak",    code: "No. 03", onLight: false },
+  { hex: "#E7DFCE", name: "Cloud",           code: "No. 07", onLight: true  },
+  { hex: "#2A2826", name: "Kendall Charcoal",code: "No. 05", onLight: false },
+  { hex: "#3F5A3B", name: "Studio Moss",     code: "No. 02", onLight: false },
+  { hex: "#BDB09A", name: "Mushroom",        code: "No. 06", onLight: true  },
+  { hex: "#B8533F", name: "Kiln Clay",       code: "No. 04", onLight: false },
+  { hex: "#F5F0E6", name: "Bone",            code: "No. 08", onLight: true  },
+  { hex: "#1F1C17", name: "Ink",             code: "No. 09", onLight: false },
+];
 
 export default function ServiceGrid() {
   return (
-    <section className="bg-white py-20 md:py-28 lg:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal>
-          <SectionHeader
-            label="What We Paint"
-            title="Our Services"
-            description="Interior, exterior, cabinets, trim, decks — plus all the unglamorous prep that makes a paint job actually last. One crew, fully insured, bilingual."
-            light
-          />
-        </ScrollReveal>
+    <section className="relative bg-paint-bone py-24 md:py-32 lg:py-40">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14">
+        {/* Editorial header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-14 md:mb-20">
+          <div className="lg:col-span-7">
+            <ScrollReveal>
+              <span className="label-eyebrow text-paint-ink/60">§ 01 — The Services</span>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <h2 className="mt-4 editorial-display-upright text-5xl md:text-6xl lg:text-7xl text-paint-ink leading-[0.95]">
+                Nine ways we <em className="editorial-display">finish a room.</em>
+              </h2>
+            </ScrollReveal>
+          </div>
+          <div className="lg:col-span-5 lg:pb-4">
+            <ScrollReveal delay={0.2}>
+              <p className="text-paint-ink/70 text-lg leading-relaxed">
+                Each service comes with the prep it actually needs — not a shortcut.
+                Drop cloths on every job, drop-sheet prices on every quote.
+              </p>
+            </ScrollReveal>
+          </div>
+        </div>
 
-        {/* Asymmetric grid — 3 columns with varying heights */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Swatch grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
           {services.map((service, i) => {
-            const Icon = iconMap[service.icon] || Wrench;
-            const isFeature = i === 0 || i === 4;
-
+            const swatch = SERVICE_SWATCHES[i % SERVICE_SWATCHES.length];
+            const textColor = swatch.onLight ? "text-paint-ink" : "text-paint-bone";
+            const mutedColor = swatch.onLight ? "text-paint-ink/60" : "text-paint-bone/70";
             return (
-              <ScrollReveal key={service.slug} delay={i * 0.06}>
-                <div
-                  className={`relative group bg-white border border-slate-200 hover-lift overflow-hidden transition-all duration-300 ${
-                    isFeature ? "lg:row-span-2 p-8" : "p-6"
-                  }`}
+              <ScrollReveal key={service.slug} delay={i * 0.05}>
+                <Link
+                  href="/services"
+                  className="swatch-card group block aspect-[4/5] p-6 md:p-8 relative overflow-hidden"
+                  style={{ backgroundColor: swatch.hex }}
                 >
-                  {/* Top accent bar */}
-                  <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-sky-500 to-sky-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
-
-                  {/* Number watermark */}
-                  <span className="absolute top-3 right-4 font-display text-6xl font-black text-slate-100/80 select-none">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-
-                  <div className="relative z-10">
-                    {/* Icon */}
-                    <div
-                      className="w-12 h-12 flex items-center justify-center bg-sky-50 border border-sky-200 mb-4 group-hover:bg-sky-500 group-hover:border-sky-500 transition-all duration-300"
-                      style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%)" }}
-                    >
-                      <Icon className="w-5 h-5 text-sky-600 group-hover:text-white transition-colors duration-300" />
-                    </div>
-
-                    <h3 className="font-display text-lg font-black text-slate-900 mb-2">
-                      {service.title}
-                    </h3>
-                    <p className={`text-sm text-slate-500 leading-relaxed ${isFeature ? "mb-6" : "mb-4"}`}>
-                      {service.description}
-                    </p>
-
-                    <Link
-                      href="/services"
-                      className="inline-flex items-center gap-1.5 text-xs font-display uppercase tracking-wider text-sky-600 hover:text-sky-700 font-bold transition-colors duration-300 group/link"
-                    >
-                      Learn More
-                      <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform duration-300" />
-                    </Link>
+                  {/* Top row — code + arrow */}
+                  <div className={`flex items-start justify-between ${textColor}`}>
+                    <span className="serif-numeral text-4xl md:text-5xl italic leading-none">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <ArrowUpRight className={`w-5 h-5 ${mutedColor} transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1`} />
                   </div>
-                </div>
+
+                  {/* Color code label */}
+                  <div className={`mt-6 ${mutedColor}`}>
+                    <span className="label-eyebrow">{swatch.code} — {swatch.name}</span>
+                  </div>
+
+                  {/* Title anchored to bottom */}
+                  <div className="absolute left-6 right-6 bottom-6 md:left-8 md:right-8 md:bottom-8">
+                    <h3 className={`editorial-display-upright text-3xl md:text-4xl lg:text-[42px] leading-[1.02] ${textColor}`}>
+                      {service.title.includes(" ") ? (
+                        <>
+                          {service.title.split(" ").slice(0, -1).join(" ")}{" "}
+                          <em className="editorial-display">{service.title.split(" ").slice(-1)}</em>
+                        </>
+                      ) : service.title}
+                    </h3>
+                    <p className={`mt-3 text-sm leading-relaxed max-w-[28ch] line-clamp-3 ${mutedColor}`}>
+                      {service.description.split(".")[0]}.
+                    </p>
+                  </div>
+                </Link>
               </ScrollReveal>
             );
           })}

@@ -56,7 +56,7 @@ export default function QuoteForm() {
       <div className="relative bg-white border border-slate-200 shadow-xl p-8 md:p-10">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-sky-400 to-sand-400" />
         <div className="text-center py-8">
-          <div className="w-16 h-16 bg-sky-50 flex items-center justify-center mx-auto mb-4" style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%)" }}>
+          <div className="w-16 h-16 bg-sky-50 flex items-center justify-center mx-auto mb-4">
             <BadgeCheck className="w-8 h-8 text-sky-500" />
           </div>
           <h3 className="font-display text-2xl font-black text-slate-900 mb-2">Request Received</h3>
@@ -121,7 +121,7 @@ export default function QuoteForm() {
           <textarea id="cq-message" name="message" rows={4} placeholder="How many rooms, what's being painted, any color ideas, timeline..." className={cn("w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3 text-sm resize-none focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 transition-colors placeholder:text-slate-400")} />
         </div>
 
-        <button type="submit" disabled={status === "submitting"} className={cn("w-full bg-sky-500 text-white font-display uppercase tracking-wider font-bold py-4 text-sm transition-all duration-300 hover:bg-sky-600 active:bg-sky-700 disabled:opacity-60 disabled:pointer-events-none shadow-md shadow-sky-500/20")} style={{ clipPath: "polygon(2% 0%, 100% 0%, 98% 100%, 0% 100%)" }}>
+        <button type="submit" disabled={status === "submitting"} className={cn("w-full bg-sky-500 text-white font-display uppercase tracking-wider font-bold py-4 text-sm transition-all duration-300 hover:bg-sky-600 active:bg-sky-700 disabled:opacity-60 disabled:pointer-events-none shadow-md shadow-sky-500/20")}>
           {status === "submitting" ? (
             <span className="flex items-center justify-center gap-2">
               <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />

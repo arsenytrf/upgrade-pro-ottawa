@@ -13,65 +13,44 @@ export default function Navbar() {
   const pathname = usePathname();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [hideNav, setHideNav] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleScroll = useCallback(() => {
-    const currentY = window.scrollY;
-    setScrolled(currentY > 20);
-
-    if (currentY > 200) {
-      setHideNav(currentY > lastScrollY);
-    } else {
-      setHideNav(false);
-    }
-
-    setLastScrollY(currentY);
-  }, [lastScrollY]);
+    setScrolled(window.scrollY > 12);
+  }, []);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  useEffect(() => {
-    setDrawerOpen(false);
-  }, [pathname]);
+  useEffect(() => { setDrawerOpen(false); }, [pathname]);
 
   return (
     <>
-      <header
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-transform duration-300",
-          hideNav && "-translate-y-full"
-        )}
-      >
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
         <nav
           className={cn(
-            "transition-all duration-300",
+            "transition-all duration-500",
             scrolled
-              ? "bg-white/90 backdrop-blur-xl backdrop-saturate-150 border-b border-slate-200/80 shadow-sm"
+              ? "bg-paint-bone/90 backdrop-blur-xl border-b border-paint-ink/10"
               : "bg-transparent"
           )}
         >
-          <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
-            {/* Logo — angular construction mark */}
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 bg-sky-500 flex items-center justify-center transition-all duration-300 group-hover:bg-sky-600" style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%)" }}>
-                <span className="font-display text-white text-sm font-bold">UP</span>
-              </div>
-              <div className="hidden sm:block leading-tight">
-                <span className="font-display text-[15px] font-bold tracking-tight text-slate-900 block">
-                  UPGRADE PRO
-                </span>
-                <span className="font-display text-[10px] font-semibold tracking-[0.2em] text-sky-600 uppercase block">
-                  Ottawa Painters
-                </span>
-              </div>
+          <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14 h-16 md:h-20 flex items-center justify-between gap-6">
+            {/* Logo — serif wordmark + swatch row */}
+            <Link href="/" className="flex items-center gap-3 group min-w-0">
+              <span className="flex items-center gap-0.5">
+                <span className="block w-2 h-2 rounded-full bg-paint-navy" />
+                <span className="block w-2 h-2 rounded-full bg-paint-oak" />
+                <span className="block w-2 h-2 rounded-full bg-paint-clay" />
+              </span>
+              <span className="editorial-display-upright text-xl md:text-2xl tracking-tight text-paint-ink truncate">
+                Upgrade <em className="editorial-display">Pro</em>
+              </span>
             </Link>
 
             {/* Desktop links */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-10">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -79,15 +58,13 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      "relative text-sm font-body font-medium tracking-wide transition-colors duration-300",
-                      isActive
-                        ? "text-sky-600"
-                        : "text-slate-600 hover:text-slate-900"
+                      "relative label-eyebrow transition-colors duration-300",
+                      isActive ? "text-paint-ink" : "text-paint-ink/60 hover:text-paint-ink"
                     )}
                   >
                     {link.label}
                     {isActive && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-sky-500 to-sky-400" />
+                      <span className="absolute -bottom-2 left-0 right-0 h-px bg-paint-ink" />
                     )}
                   </Link>
                 );
@@ -95,7 +72,7 @@ export default function Navbar() {
 
               <a
                 href={`tel:${company.phoneRaw}`}
-                className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors duration-300"
+                className="flex items-center gap-1.5 text-sm text-paint-ink/70 hover:text-paint-ink transition-colors duration-300"
               >
                 <Phone className="h-3.5 w-3.5" />
                 {company.phone}
@@ -103,10 +80,9 @@ export default function Navbar() {
 
               <Link
                 href={ctaLink.href}
-                className="ml-1 px-6 py-2.5 bg-sky-500 hover:bg-sky-600 text-white text-sm font-display font-bold tracking-wide transition-all duration-300 shadow-md shadow-sky-500/20 hover:shadow-lg hover:shadow-sky-500/30"
-                style={{ clipPath: "polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)" }}
+                className="pill bg-paint-ink text-paint-bone hover:bg-paint-navy text-xs"
               >
-                FREE ESTIMATE
+                {ctaLink.label}
               </Link>
             </div>
 
@@ -114,14 +90,14 @@ export default function Navbar() {
             <div className="lg:hidden flex items-center gap-3">
               <a
                 href={`tel:${company.phoneRaw}`}
-                className="p-2 text-sky-600 hover:text-sky-700 transition-colors duration-300"
+                className="p-2 text-paint-ink hover:text-paint-navy transition-colors"
                 aria-label="Call now"
               >
                 <Phone className="h-5 w-5" />
               </a>
               <button
                 onClick={() => setDrawerOpen(true)}
-                className="p-2 text-slate-600 hover:text-slate-900 transition-colors duration-300"
+                className="p-2 text-paint-ink hover:text-paint-navy transition-colors"
                 aria-label="Open menu"
               >
                 <Menu className="h-6 w-6" />
@@ -131,8 +107,7 @@ export default function Navbar() {
         </nav>
       </header>
 
-      {/* Spacer for fixed nav */}
-      <div className="h-18" />
+      <div className="h-16 md:h-20" />
 
       <MobileDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </>

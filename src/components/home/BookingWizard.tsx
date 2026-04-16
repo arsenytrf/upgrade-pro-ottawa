@@ -95,8 +95,6 @@ const STEPS = [
   { num: 5, label: "Confirm", icon: CheckCircle2 },
 ];
 
-const tileClip = "polygon(0 0, 100% 0, 100% 80%, 80% 100%, 0 100%)";
-
 export default function BookingWizard() {
   const [step, setStep] = useState(1);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -175,7 +173,7 @@ export default function BookingWizard() {
         />
         <div
           className="w-20 h-20 bg-slate-900 flex items-center justify-center mx-auto mb-6"
-          style={{ clipPath: tileClip }}
+
         >
           <CheckCircle2 className="w-10 h-10 text-white" strokeWidth={1.5} />
         </div>
@@ -191,7 +189,7 @@ export default function BookingWizard() {
         <a
           href={`tel:${company.phoneRaw}`}
           className="inline-flex items-center gap-2 bg-slate-900 hover:bg-black text-white px-8 py-4 font-display font-bold text-sm uppercase tracking-wider transition-colors"
-          style={{ clipPath: "polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%)" }}
+
         >
           <Phone className="w-4 h-4" />
           Or call us — {company.phone}
@@ -230,7 +228,7 @@ export default function BookingWizard() {
                       ? "bg-slate-100 text-slate-900 border border-slate-900"
                       : "bg-slate-50 text-slate-400 border border-slate-200"
                   }`}
-                  style={{ clipPath: tileClip }}
+
                 >
                   {completed ? <Check className="w-4 h-4" /> : s.num}
                 </div>
@@ -515,7 +513,7 @@ export default function BookingWizard() {
                   <div className="flex items-start gap-3 min-w-0 flex-1">
                     <div
                       className="w-10 h-10 bg-slate-900 flex items-center justify-center shrink-0"
-                      style={{ clipPath: tileClip }}
+
                     >
                       <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
                     </div>
@@ -591,7 +589,7 @@ export default function BookingWizard() {
             onClick={() => canAdvance() && step < 5 && setStep(step + 1)}
             disabled={!canAdvance()}
             className="inline-flex items-center gap-2 bg-slate-900 hover:bg-black disabled:opacity-30 disabled:cursor-not-allowed text-white px-6 md:px-8 py-3.5 md:py-4 font-display font-bold text-xs md:text-sm uppercase tracking-wider transition-all"
-            style={{ clipPath: "polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%)" }}
+
           >
             Continue
             <ArrowRight className="w-4 h-4" />
@@ -601,7 +599,7 @@ export default function BookingWizard() {
             onClick={handleSubmit}
             disabled={status === "loading"}
             className="inline-flex items-center gap-2 bg-slate-900 hover:bg-black disabled:opacity-50 text-white px-8 md:px-10 py-3.5 md:py-4 font-display font-bold text-xs md:text-sm uppercase tracking-wider transition-all"
-            style={{ clipPath: "polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%)" }}
+
           >
             {status === "loading" ? (
               <Loader2 className="w-4 h-4 animate-spin" />

@@ -271,7 +271,7 @@ export default function LeadCollector() {
             {/* Header */}
             <div className="flex shrink-0 items-center justify-between px-5 py-3.5 bg-sky-500">
               <div className="flex items-center gap-3">
-                <div className="relative flex h-9 w-9 items-center justify-center bg-white/20 overflow-hidden" style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%)" }}>
+                <div className="relative flex h-9 w-9 items-center justify-center bg-white/20 overflow-hidden">
                   <span className="font-display text-white text-xs font-black">UP</span>
                   <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-white border-2 border-sky-500" />
                 </div>

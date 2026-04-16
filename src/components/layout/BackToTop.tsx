@@ -12,7 +12,6 @@ export default function BackToTop() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollProgress = docHeight > 0 ? scrollTop / docHeight : 0;
-
     setProgress(Math.min(scrollProgress, 1));
     setVisible(scrollTop > 500);
   }, []);
@@ -22,55 +21,33 @@ export default function BackToTop() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   const circumference = 2 * Math.PI * 18;
 
   return (
     <button
       onClick={scrollToTop}
       className={cn(
-        "fixed z-40 flex items-center justify-center",
-        "bottom-6 right-6 w-14 h-14 lg:w-12 lg:h-12 rounded-full",
-        "bg-white hover:bg-sky-50 text-slate-600 hover:text-sky-600",
-        "shadow-lg shadow-slate-300/40 border border-slate-200",
-        "transition-all duration-300 cursor-pointer",
-        visible
-          ? "opacity-100 translate-y-0 scale-100"
-          : "opacity-0 translate-y-4 scale-90 pointer-events-none"
+        "fixed z-40 flex items-center justify-center bottom-6 right-6 w-14 h-14 lg:w-12 lg:h-12 rounded-full",
+        "bg-paint-bone hover:bg-paint-cloud text-paint-ink border border-paint-ink/15 shadow-xl",
+        "transition-all duration-500 cursor-pointer",
+        visible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-90 pointer-events-none"
       )}
       aria-label="Back to top"
     >
-      <svg
-        className="absolute inset-0 w-full h-full -rotate-90"
-        viewBox="0 0 40 40"
-      >
+      <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 40 40">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" strokeWidth="2" className="text-paint-ink/10" />
         <circle
-          cx="20"
-          cy="20"
-          r="18"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          className="text-slate-200"
-        />
-        <circle
-          cx="20"
-          cy="20"
-          r="18"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          className="text-sky-500"
+          cx="20" cy="20" r="18" fill="none"
+          stroke="currentColor" strokeWidth="2"
+          className="text-paint-ink"
           strokeDasharray={circumference}
           strokeDashoffset={circumference * (1 - progress)}
           strokeLinecap="round"
           style={{ transition: "stroke-dashoffset 0.1s ease-out" }}
         />
       </svg>
-      <ArrowUp className="w-5 h-5 lg:w-4 lg:h-4 relative z-10" />
+      <ArrowUp className="w-4 h-4 relative z-10" />
     </button>
   );
 }

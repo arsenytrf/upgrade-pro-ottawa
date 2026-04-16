@@ -1,103 +1,58 @@
 "use client";
 
-import {
-  Brush,
-  ShieldCheck,
-  DollarSign,
-  Sparkles,
-  Languages,
-  Leaf,
-} from "lucide-react";
-import SectionHeader from "@/components/shared/SectionHeader";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
-const reasons = [
-  {
-    icon: Brush,
-    title: "Prep That Actually Matters",
-    description: "Sanding, patching, caulking, priming. The unglamorous part most painters rush — we don't.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Fully Insured",
-    description: "Liability and WSIB coverage. You're protected the moment we walk in the door.",
-  },
-  {
-    icon: DollarSign,
-    title: "Honest, Written Quotes",
-    description: "Itemized estimates with paint brand, coats, and timeline spelled out. No surprises.",
-  },
-  {
-    icon: Sparkles,
-    title: "Clean Finish, Cleaner Site",
-    description: "Drop cloths everywhere, furniture wrapped, tools off the floor. We leave it better than we found it.",
-  },
-  {
-    icon: Languages,
-    title: "Bilingual — EN & FR",
-    description: "Nous parlons français. Ottawa and Gatineau clients handled in whichever language feels right.",
-  },
-  {
-    icon: Leaf,
-    title: "Low-VOC, Family-Safe",
-    description: "Benjamin Moore, Sherwin-Williams, Sico. Low-odour, durable finishes — safe for kids and pets.",
-  },
+const REASONS = [
+  { num: "01", title: "Prep is the job.",       body: "Sanding, patching, masking, priming. The unglamorous hours most painters skip — we don't." },
+  { num: "02", title: "Written, itemized quotes.",body: "Brand, finish, number of coats, timeline. Same price at the end as at the start." },
+  { num: "03", title: "Fully insured.",         body: "Liability + WSIB coverage. You're protected the moment we walk in the door." },
+  { num: "04", title: "Spotless site.",         body: "Drop cloths everywhere, furniture wrapped, tools packed away daily. Left cleaner than found." },
+  { num: "05", title: "Bilingual — EN / FR.",   body: "Service in whichever language feels natural. Ottawa and Gatineau treated the same." },
+  { num: "06", title: "Low-VOC paints.",        body: "Benjamin Moore, Sherwin-Williams, Sico. Low-odour, family- and pet-safe from day one." },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section className="relative bg-slate-50 py-20 md:py-28 lg:py-32 overflow-hidden">
-      {/* Geometric background shapes */}
-      <div
-        className="absolute top-20 -right-32 w-64 h-64 bg-sky-100/40"
-        style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%)" }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-10 -left-20 w-40 h-40 bg-sand-200/30"
-        style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%)" }}
-        aria-hidden="true"
-      />
+    <section className="bg-paint-bone py-24 md:py-32 lg:py-40">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal>
-          <SectionHeader
-            label="Why Us"
-            title="The Upgrade Pro Difference"
-            description="Anyone can roll paint on a wall. We do the parts that matter — the prep, the cut-ins, the clean-up — so the finish actually lasts."
-            light
-          />
-        </ScrollReveal>
+          <div className="lg:col-span-4 lg:sticky lg:top-32">
+            <ScrollReveal>
+              <span className="label-eyebrow text-paint-ink/60">§ 05 — Why Upgrade Pro</span>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <h2 className="mt-4 editorial-display-upright text-5xl md:text-6xl text-paint-ink leading-[0.95]">
+                Six habits <em className="editorial-display">that outlast the paint.</em>
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2}>
+              <p className="mt-6 text-paint-ink/70 leading-relaxed">
+                A few non-negotiables on every job — the kind of things you only notice
+                when they&rsquo;re missing.
+              </p>
+            </ScrollReveal>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {reasons.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <ScrollReveal key={item.title} delay={i * 0.08}>
-                <div className="relative bg-white border border-slate-200 hover-lift p-6 h-full group overflow-hidden">
-                  {/* Hover accent */}
-                  <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-sky-500 to-sand-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
-
-                  <div className="flex items-start gap-4">
-                    <div
-                      className="shrink-0 w-11 h-11 flex items-center justify-center bg-sky-50 border border-sky-200 group-hover:bg-sky-500 group-hover:border-sky-500 transition-all duration-300"
-                      style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%)" }}
-                    >
-                      <Icon className="w-5 h-5 text-sky-600 group-hover:text-white transition-colors duration-300" />
-                    </div>
-                    <div>
-                      <h3 className="font-display text-base font-black text-slate-900 mb-1">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-slate-500 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </ScrollReveal>
-            );
-          })}
+          <div className="lg:col-span-8">
+            <ul className="divide-y divide-paint-ink/15 border-y border-paint-ink/15">
+              {REASONS.map((r, i) => (
+                <ScrollReveal key={r.num} delay={i * 0.06}>
+                  <li className="grid grid-cols-12 gap-4 md:gap-6 py-7 md:py-9 items-baseline">
+                    <span className="col-span-2 md:col-span-1 serif-numeral italic text-3xl md:text-4xl text-paint-ink/50">
+                      {r.num}
+                    </span>
+                    <h3 className="col-span-10 md:col-span-4 editorial-display-upright text-2xl md:text-3xl text-paint-ink leading-tight">
+                      {r.title}
+                    </h3>
+                    <p className="col-span-12 md:col-span-7 text-paint-ink/70 leading-relaxed text-base md:text-lg">
+                      {r.body}
+                    </p>
+                  </li>
+                </ScrollReveal>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

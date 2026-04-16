@@ -8,7 +8,7 @@ interface ButtonBaseProps {
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
   className?: string;
-  /** Use geometric clip-path shape */
+  /** Kept for API compatibility; no-op in editorial theme */
   geometric?: boolean;
 }
 
@@ -25,20 +25,20 @@ type ButtonAsLink = ButtonBaseProps &
 type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantStyles: Record<ButtonVariant, string> = {
-  sky: "bg-sky-500 text-white hover:bg-sky-600 active:bg-sky-700 shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 hover:shadow-xl",
+  sky: "bg-paint-ink text-paint-bone hover:bg-paint-navy",
   outline:
-    "border-2 border-sky-500 text-sky-600 hover:bg-sky-500 hover:text-white active:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/20",
-  dark: "bg-slate-900 text-white hover:bg-slate-800 active:bg-slate-950 border border-slate-700 hover:shadow-lg",
+    "border border-paint-ink/25 text-paint-ink hover:border-paint-ink hover:bg-paint-ink hover:text-paint-bone",
+  dark: "bg-paint-ink text-paint-bone hover:bg-paint-charcoal",
   white:
-    "bg-white text-slate-900 hover:bg-slate-100 active:bg-slate-200 shadow-lg shadow-slate-200/50",
+    "bg-paint-bone text-paint-ink hover:bg-paint-cloud",
   ghost:
-    "text-slate-600 hover:text-sky-600 hover:bg-slate-100 active:bg-slate-200",
+    "text-paint-ink/80 hover:text-paint-ink hover:bg-paint-cloud",
 };
 
 const sizeStyles: Record<"sm" | "md" | "lg", string> = {
-  sm: "px-5 py-2 text-xs gap-1.5",
-  md: "px-7 py-3 text-sm gap-2",
-  lg: "px-9 py-4 text-base gap-2.5",
+  sm: "px-4 py-2 text-xs gap-1.5",
+  md: "px-6 py-3 text-sm gap-2",
+  lg: "px-7 py-3.5 text-sm gap-2.5",
 };
 
 export default function Button({
@@ -46,14 +46,14 @@ export default function Button({
   size = "md",
   children,
   className,
-  geometric = false,
+  geometric: _geometric = false,
   ...props
 }: ButtonProps) {
   const classes = cn(
     "inline-flex items-center justify-center",
-    "font-display uppercase tracking-wider font-semibold",
-    "transition-all duration-300 ease-out",
-    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500",
+    "font-body font-medium tracking-normal rounded-full",
+    "transition-all duration-400 ease-out",
+    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-paint-ink",
     "disabled:opacity-50 disabled:pointer-events-none",
     "cursor-pointer select-none whitespace-nowrap",
     variantStyles[variant],
@@ -61,21 +61,17 @@ export default function Button({
     className
   );
 
-  const clipStyle = geometric
-    ? { clipPath: "polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%)" }
-    : undefined;
-
   if ("href" in props && props.href) {
     const { href, ...rest } = props as ButtonAsLink;
     return (
-      <Link href={href} className={classes} style={clipStyle} {...rest}>
+      <Link href={href} className={classes} {...rest}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button className={classes} style={clipStyle} {...(props as ButtonAsButton)}>
+    <button className={classes} {...(props as ButtonAsButton)}>
       {children}
     </button>
   );

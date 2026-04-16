@@ -3,38 +3,24 @@
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const stats = [
-  { value: "500+", label: "Homes Painted" },
-  { value: "100%", label: "Satisfaction" },
-  { value: "EN / FR", label: "Bilingual" },
-  { value: "FREE", label: "Estimates" },
+  { value: "500+",    label: "Homes painted" },
+  { value: "100%",    label: "Satisfaction" },
+  { value: "EN · FR", label: "Bilingual crew" },
+  { value: "Free",    label: "Written estimates" },
 ];
 
 export default function StatsStrip() {
   return (
-    <section className="relative bg-sky-950 overflow-hidden">
-      {/* Geometric accent */}
-      <div
-        className="absolute -left-10 top-1/2 -translate-y-1/2 w-20 h-20 bg-white/10"
-        style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%)" }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute -right-10 top-1/2 -translate-y-1/2 w-20 h-20 bg-white/5"
-        style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%)" }}
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
-          {stats.map((stat, i) => (
-            <ScrollReveal key={stat.label} delay={i * 0.1}>
-              <div className="flex flex-col items-center gap-1 py-7 md:py-9">
-                <span className="font-display text-2xl sm:text-3xl md:text-4xl font-black text-white">
-                  {stat.value}
+    <section className="relative bg-paint-mushroom/20 border-y border-paint-ink/10">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14">
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-paint-ink/15">
+          {stats.map((s, i) => (
+            <ScrollReveal key={s.label} delay={i * 0.08}>
+              <div className="flex flex-col items-start gap-2 py-10 md:py-12 px-4 md:px-6 first:pl-0">
+                <span className="editorial-display-upright text-4xl md:text-5xl lg:text-6xl text-paint-ink leading-none">
+                  {s.value}
                 </span>
-                <span className="font-display text-[10px] uppercase tracking-[0.2em] text-slate-300 font-bold">
-                  {stat.label}
-                </span>
+                <span className="label-eyebrow text-paint-ink/60">{s.label}</span>
               </div>
             </ScrollReveal>
           ))}

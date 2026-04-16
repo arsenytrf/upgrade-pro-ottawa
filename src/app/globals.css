@@ -2,124 +2,118 @@
 
 /* ============================================================
    UPGRADE PRO — Design System
-   Premium residential painter — deep navy + warm ivory
+   Editorial paint-swatch aesthetic
+   Bone backgrounds, ink body, named-paint accents, serif display
    Tailwind CSS v4 | @theme inline
    ============================================================ */
 
 @theme inline {
-  /* --------------------------------------------------
-     COLORS — Sky (primary accent — deep navy scale)
-     -------------------------------------------------- */
-  --color-sky-50:  #EEF2F8;
-  --color-sky-100: #D9E0EC;
-  --color-sky-200: #B7C2D7;
-  --color-sky-300: #8A9AB9;
-  --color-sky-400: #516B92;
-  --color-sky-500: #0F1E3C;
-  --color-sky-600: #0B1730;
-  --color-sky-700: #081123;
-  --color-sky-800: #050B18;
-  --color-sky-900: #03070F;
-  --color-sky-950: #020509;
+  /* ------------------------------------------------------------
+     Sky = INK (near-black primary — body text + dark blocks)
+     ------------------------------------------------------------ */
+  --color-sky-50:  #FAF8F4;
+  --color-sky-100: #F0ECE3;
+  --color-sky-200: #D9D3C5;
+  --color-sky-300: #A8A193;
+  --color-sky-400: #5D574C;
+  --color-sky-500: #1F1C17;
+  --color-sky-600: #181510;
+  --color-sky-700: #13100C;
+  --color-sky-800: #0D0B08;
+  --color-sky-900: #070604;
+  --color-sky-950: #040302;
 
-  /* --------------------------------------------------
-     COLORS — Sand (warm ivory / bone neutrals)
-     -------------------------------------------------- */
-  --color-sand-50:  #FBF8F1;
-  --color-sand-100: #F5EFE2;
-  --color-sand-200: #E9DFC7;
-  --color-sand-300: #D7C8A2;
-  --color-sand-400: #B8A67A;
-  --color-sand-500: #8B7D57;
-  --color-sand-600: #635A3D;
+  /* ------------------------------------------------------------
+     Sand = BONE (warm cream surfaces)
+     ------------------------------------------------------------ */
+  --color-sand-50:  #FBF7EE;
+  --color-sand-100: #F5F0E6;
+  --color-sand-200: #ECE4D2;
+  --color-sand-300: #DCD0B5;
+  --color-sand-400: #C0B08E;
+  --color-sand-500: #8E8064;
+  --color-sand-600: #5F5442;
 
-  /* --------------------------------------------------
-     COLORS — Slate (true neutral — text + dark backgrounds)
-     -------------------------------------------------- */
-  --color-slate-50:  #FAFAF7;
-  --color-slate-100: #F4F2EC;
-  --color-slate-200: #E5E1D6;
-  --color-slate-300: #CFC9B9;
-  --color-slate-400: #9B9687;
-  --color-slate-500: #6A665B;
-  --color-slate-600: #4A473F;
-  --color-slate-700: #302D28;
-  --color-slate-800: #1A1815;
-  --color-slate-900: #0B0A08;
-  --color-slate-950: #030302;
+  /* ------------------------------------------------------------
+     Slate = warm neutrals
+     ------------------------------------------------------------ */
+  --color-slate-50:  #F7F3EB;
+  --color-slate-100: #EEE9DD;
+  --color-slate-200: #DDD5C4;
+  --color-slate-300: #B7AD98;
+  --color-slate-400: #847B66;
+  --color-slate-500: #554E3E;
+  --color-slate-600: #3B362B;
+  --color-slate-700: #27231B;
+  --color-slate-800: #161310;
+  --color-slate-900: #0B0A07;
+  --color-slate-950: #040302;
 
-  /* --------------------------------------------------
-     FONTS — Clash Display (display) + General Sans (body)
-     -------------------------------------------------- */
-  --font-display: "Clash Display", sans-serif;
-  --font-body:    "General Sans", sans-serif;
+  /* ------------------------------------------------------------
+     Named paint colors — the brand's signature swatches
+     Used for section accents, swatch cards, CTA blocks
+     ------------------------------------------------------------ */
+  --color-paint-cloud:      #E7DFCE;
+  --color-paint-bone:       #F5F0E6;
+  --color-paint-mushroom:   #BDB09A;
+  --color-paint-oak:        #8B5E34;
+  --color-paint-clay:       #B8533F;
+  --color-paint-moss:       #3F5A3B;
+  --color-paint-navy:       #1E2E4A;
+  --color-paint-charcoal:   #2A2826;
+  --color-paint-ink:        #1F1C17;
 
-  /* --------------------------------------------------
-     BORDER RADIUS — sharp premium feel
-     -------------------------------------------------- */
-  --radius-xs:  0px;
-  --radius-sm:  2px;
-  --radius-md:  4px;
-  --radius-lg:  6px;
-  --radius-xl:  8px;
-  --radius-2xl: 10px;
-  --radius-3xl: 14px;
-  --radius-4xl: 20px;
+  /* ------------------------------------------------------------
+     Fonts — Fraunces (display serif, italic headlines) + Inter (body)
+     ------------------------------------------------------------ */
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body:    "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  /* --------------------------------------------------
-     ANIMATIONS
-     -------------------------------------------------- */
-  --animate-ken-burns:       ken-burns 20s ease-in-out infinite alternate;
-  --animate-marquee:         marquee 45s linear infinite;
-  --animate-marquee-reverse: marquee-reverse 45s linear infinite;
-  --animate-fade-up:         fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-  --animate-count-pulse:     count-pulse 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  --animate-float:           float 6s ease-in-out infinite;
+  /* ------------------------------------------------------------
+     Border radius — soft, editorial (NO sharp industrial clips)
+     ------------------------------------------------------------ */
+  --radius-xs:  2px;
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  20px;
+  --radius-2xl: 28px;
+  --radius-3xl: 40px;
+  --radius-4xl: 9999px;
+
+  /* ------------------------------------------------------------
+     Animations
+     ------------------------------------------------------------ */
+  --animate-marquee:     marquee 60s linear infinite;
+  --animate-fade-up:     fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-color-pulse: color-pulse 12s ease-in-out infinite;
 }
 
 /* ============================================================
    KEYFRAMES
    ============================================================ */
 
-@keyframes ken-burns {
-  0%   { transform: scale(1)   translate(0, 0); }
-  100% { transform: scale(1.1) translate(-1.5%, -1%); }
-}
-
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-@keyframes marquee-reverse {
-  0%   { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
 @keyframes fade-up {
-  0% {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes count-pulse {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.15); }
-  100% { transform: scale(1); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
+@keyframes color-pulse {
+  0%, 100% { background-color: var(--color-paint-navy); }
+  16%      { background-color: var(--color-paint-moss); }
+  33%      { background-color: var(--color-paint-oak); }
+  50%      { background-color: var(--color-paint-clay); }
+  66%      { background-color: var(--color-paint-charcoal); }
+  83%      { background-color: var(--color-paint-mushroom); }
 }
 
 /* ============================================================
-   BASE STYLES
+   BASE
    ============================================================ */
 
 *,
@@ -128,10 +122,7 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  overflow-x: hidden;
-}
+html, body { overflow-x: hidden; }
 
 html {
   scroll-behavior: smooth;
@@ -140,128 +131,145 @@ html {
 }
 
 body {
-  background-color: var(--color-sand-50);
-  color: var(--color-slate-900);
+  background-color: var(--color-paint-bone);
+  color: var(--color-paint-ink);
+  font-family: var(--font-body);
+  font-feature-settings: "ss01", "cv11";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  letter-spacing: -0.02em;
 }
 
 ::selection {
-  background-color: var(--color-sky-500);
-  color: #ffffff;
+  background-color: var(--color-paint-clay);
+  color: var(--color-paint-bone);
 }
 
 /* ============================================================
-   CUSTOM SCROLLBAR
+   SCROLLBAR — warm + quiet
    ============================================================ */
 
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-sand-100);
-}
-
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-paint-cloud); }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-slate-300);
-  border-radius: 4px;
+  background: var(--color-paint-mushroom);
+  border-radius: 9999px;
+  border: 2px solid var(--color-paint-cloud);
 }
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-sky-500);
-}
+::-webkit-scrollbar-thumb:hover { background: var(--color-paint-ink); }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-slate-300) var(--color-sand-100);
+  scrollbar-color: var(--color-paint-mushroom) var(--color-paint-cloud);
 }
 
 /* ============================================================
-   LENIS SMOOTH SCROLL
+   LENIS
    ============================================================ */
 
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
 
 /* ============================================================
    UTILITY CLASSES
    ============================================================ */
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--color-slate-200);
-  box-shadow: 0 4px 24px rgba(11, 23, 48, 0.08);
+/* Editorial display — big italic serif */
+.editorial-display {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  line-height: 0.9;
 }
 
-.hover-lift {
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+.editorial-display-upright {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
 }
 
-.hover-lift:hover {
-  transform: translateY(-6px);
+/* Tiny all-caps metadata label (like magazine copy) */
+.label-eyebrow {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Serif numeral — for section numbering */
+.serif-numeral {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+}
+
+/* Pill button */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.875rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Swatch card with hovering color inset */
+.swatch-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.swatch-card:hover { transform: translateY(-4px); }
+
+/* Image frame — soft warm shadow (no hard clip-paths) */
+.image-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
   box-shadow:
-    0 16px 48px rgba(11, 23, 48, 0.12),
-    0 0 0 1px rgba(11, 23, 48, 0.1);
+    0 1px 2px rgba(31, 28, 23, 0.04),
+    0 16px 40px rgba(31, 28, 23, 0.08);
 }
 
-.gradient-mesh-sky {
-  background-image:
-    radial-gradient(ellipse 60% 50% at 20% 40%, rgba(15, 30, 60, 0.06), transparent),
-    radial-gradient(ellipse 50% 60% at 80% 20%, rgba(15, 30, 60, 0.035), transparent),
-    radial-gradient(ellipse 40% 40% at 50% 80%, rgba(15, 30, 60, 0.025), transparent);
+/* Divider — dotted like a paint plan */
+.paint-divider {
+  height: 1px;
+  background-image: linear-gradient(to right,
+    var(--color-paint-ink) 50%, transparent 50%);
+  background-size: 6px 1px;
+  opacity: 0.25;
 }
 
-.text-stroke {
-  -webkit-text-stroke: 1.5px var(--color-slate-300);
-  color: transparent;
-}
-
-.text-stroke-sky {
-  -webkit-text-stroke: 2px var(--color-sky-500);
-  color: transparent;
-}
-
-.geo-line {
-  height: 3px;
-  background: linear-gradient(90deg, var(--color-sky-500), var(--color-sand-400));
-}
-
-.noise-overlay::before {
+/* Grain — very subtle paper texture */
+.paper-grain::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.015;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-size: 256px 256px;
+  background-size: 180px 180px;
+  mix-blend-mode: multiply;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
