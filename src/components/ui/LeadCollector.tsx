@@ -226,7 +226,7 @@ export default function LeadCollector() {
             transition={{ duration: dur, ease }}
           >
             {/* Avatar with status dot */}
-            <span className="relative w-9 h-9 rounded-full bg-white/15 flex items-center justify-center overflow-hidden shrink-0">
+            <span className="relative w-9 h-9 rounded-full bg-white flex items-center justify-center overflow-hidden shrink-0">
               <img src={logoSrc} alt="" className="w-7 h-7 object-contain" />
               <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-paint-clay border-2 border-paint-ink" />
             </span>
@@ -265,7 +265,7 @@ export default function LeadCollector() {
               {/* Header */}
               <div className="flex shrink-0 items-center justify-between px-5 py-4 bg-paint-ink rounded-t-2xl">
                 <div className="flex items-center gap-3">
-                  <span className="relative w-10 h-10 rounded-full bg-white/15 flex items-center justify-center overflow-hidden">
+                  <span className="relative w-10 h-10 rounded-full bg-white flex items-center justify-center overflow-hidden">
                     <img src={logoSrc} alt="" className="w-8 h-8 object-contain" />
                     <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-paint-clay border-2 border-paint-ink" />
                   </span>
