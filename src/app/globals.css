@@ -56,9 +56,9 @@
   --color-paint-bone:     #E6DDC9;
   --color-paint-ink:      #14110D;
   --color-paint-charcoal: #221E18;
-  --color-paint-clay:     #C25A3E;
-  --color-paint-rust:     #8E3A22;
-  --color-paint-moss:     #2D4A3A;
+  --color-paint-clay:     #2D6A4F;
+  --color-paint-rust:     #1B4332;
+  --color-paint-moss:     #D4E7D3;
   --color-paint-navy:     #132238;
   --color-paint-tan:      #B7A682;
 
@@ -125,7 +125,7 @@ h1, h2, h3, h4, h5, h6 {
 
 ::selection {
   background-color: var(--color-paint-clay);
-  color: var(--color-paint-cream);
+  color: var(--color-paint-bone);
 }
 
 /* ============================================================
