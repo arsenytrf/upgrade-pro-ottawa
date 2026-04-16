@@ -25,7 +25,7 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             <div className="lg:col-span-4">
-              <span className="stencil text-paint-clay">§ 06 — Book a Visit</span>
+              <span className="stencil text-paint-clay">06 — Book a Visit</span>
               <h2 className="mt-4 display-heavy uppercase text-paint-ink text-5xl md:text-6xl lg:text-7xl leading-[0.9]">
                 Tell us about<br /><span className="text-paint-clay">your walls.</span>
               </h2>

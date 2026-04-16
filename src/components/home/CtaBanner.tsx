@@ -22,9 +22,9 @@ export default function CtaBanner() {
               <span className="stencil text-paint-clay">Ready When You Are</span>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <h2 className="mt-5 display-heavy uppercase text-paint-cream text-[56px] sm:text-[80px] md:text-[104px] lg:text-[140px] leading-[0.88]">
-                Let&rsquo;s get<br />
-                <span className="text-paint-clay">that paint on.</span>
+              <h2 className="mt-5 display-heavy uppercase text-paint-cream text-[48px] sm:text-[68px] md:text-[88px] lg:text-[112px] leading-[0.9]">
+                Book your<br />
+                <span className="text-paint-clay">free estimate.</span>
               </h2>
             </ScrollReveal>
           </div>

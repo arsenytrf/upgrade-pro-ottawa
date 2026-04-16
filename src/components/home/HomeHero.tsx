@@ -55,7 +55,7 @@ export default function HomeHero() {
             <div data-hero-stamp className="inline-flex items-center gap-3 mb-10 border border-paint-cream/25 px-3 py-2">
               <span className="w-2 h-2 bg-paint-clay rounded-full animate-pulse" />
               <span className="stencil text-paint-cream/85">
-                Ottawa · Gatineau Painters
+                Painters · Ottawa + Gatineau
               </span>
             </div>
 
@@ -89,14 +89,14 @@ export default function HomeHero() {
               <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/20 to-transparent" />
               {/* Job tag */}
               <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-paint-cream">
-                <span className="stencil bg-paint-ink/70 backdrop-blur px-2.5 py-1.5">Job · No. 147</span>
+                <span className="stencil bg-paint-ink/70 backdrop-blur px-2.5 py-1.5">Recent Work</span>
                 <span className="stencil bg-paint-clay px-2.5 py-1.5">Interior</span>
               </div>
               <div className="absolute left-5 right-5 bottom-5 text-paint-cream">
-                <p className="stencil text-paint-cream/70 mb-1.5">Kanata</p>
+                <p className="stencil text-paint-cream/70 mb-1.5">Ottawa</p>
                 <p className="display-cond text-2xl md:text-3xl leading-tight">
-                  Whole-home repaint,<br />
-                  <span className="text-paint-clay">3 coats, Benjamin Moore.</span>
+                  Clean lines.<br />
+                  <span className="text-paint-clay">Proper prep.</span>
                 </p>
               </div>
             </div>
@@ -113,12 +113,11 @@ export default function HomeHero() {
         </div>
 
         {/* Inline stat strip overlaid at hero bottom */}
-        <div data-hero-stats className="mt-16 md:mt-24 border-t border-paint-cream/15 pt-8 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div data-hero-stats className="mt-16 md:mt-24 border-t border-paint-cream/15 pt-8 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {[
-            { n: "500+",    l: "Homes Painted" },
-            { n: "100%",    l: "Satisfaction" },
-            { n: "EN / FR", l: "Bilingual" },
-            { n: "Free",    l: "Written Quotes" },
+            { n: "500+",   l: "Homes Painted" },
+            { n: "EN & FR",l: "Bilingue" },
+            { n: "Free",   l: "Written Quotes" },
           ].map((s) => (
             <div key={s.l} className="flex items-baseline gap-3">
               <span className="display-heavy text-paint-clay text-4xl md:text-5xl lg:text-6xl">{s.n}</span>

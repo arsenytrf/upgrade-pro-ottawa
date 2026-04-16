@@ -4,12 +4,12 @@ import { sectionImages } from "@/data/company";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const REASONS = [
-  { n: "01", title: "Prep is the job.",       body: "Sanding, patching, masking, priming. The hours most painters skip — we don't." },
-  { n: "02", title: "Written, itemized quotes.", body: "Brand, finish, coats, timeline. Same price at the end as the start." },
-  { n: "03", title: "Fully insured.",         body: "WSIB + liability. You're covered from the moment we walk in." },
-  { n: "04", title: "Spotless site.",         body: "Drop cloths everywhere, furniture wrapped, tools packed daily." },
-  { n: "05", title: "Bilingual — EN / FR.",   body: "Whichever feels natural. Ottawa and Gatineau treated the same." },
-  { n: "06", title: "Low-VOC paints.",        body: "Benjamin Moore, Sherwin-Williams, Sico. Safe for kids, pets, you." },
+  { n: "01", title: "Prep is the job.",           body: "Sanding, patching, masking, priming. The hours most painters skip — we don't." },
+  { n: "02", title: "Written quotes, itemized.",  body: "Brand, finish, coats, timeline. Same price at the end as the start." },
+  { n: "03", title: "Fully insured.",             body: "WSIB + liability. You're covered from the moment we walk in." },
+  { n: "04", title: "Spotless worksite.",         body: "Drop cloths everywhere, furniture wrapped, tools packed daily." },
+  { n: "05", title: "English & French.",          body: "Service in whichever language feels natural. Ottawa and Gatineau treated the same." },
+  { n: "06", title: "Premium paints only.",       body: "Benjamin Moore, Sherwin-Williams, Sico. Low-VOC, safe for kids and pets." },
 ];
 
 export default function WhyChooseUs() {
@@ -38,7 +38,7 @@ export default function WhyChooseUs() {
               </div>
               {/* Sticker badge */}
               <div className="absolute top-5 right-5 bg-paint-clay text-paint-cream px-3 py-2 rotate-[-4deg]">
-                <span className="stencil">Since &apos;19</span>
+                <span className="stencil">Fully Insured</span>
               </div>
             </div>
           </ScrollReveal>
@@ -46,12 +46,12 @@ export default function WhyChooseUs() {
           {/* Right — reasons */}
           <div className="lg:col-span-7">
             <ScrollReveal>
-              <span className="stencil text-paint-clay">§ 04 — Why Upgrade Pro</span>
+              <span className="stencil text-paint-clay">04 — Why Upgrade Pro</span>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h2 className="mt-4 display-heavy uppercase text-paint-ink text-[48px] sm:text-[64px] md:text-[80px] lg:text-[96px] leading-[0.9]">
-                Six habits<br />
-                <span className="text-paint-clay">that outlast the paint.</span>
+                What you<br />
+                <span className="text-paint-clay">actually get.</span>
               </h2>
             </ScrollReveal>
 

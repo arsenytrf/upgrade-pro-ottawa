@@ -25,7 +25,7 @@ export default function ProcessTimeline() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-14 md:mb-20">
           <div className="lg:col-span-8">
             <ScrollReveal>
-              <span className="stencil text-paint-clay">§ 03 — The Method</span>
+              <span className="stencil text-paint-clay">03 — The Method</span>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h2 className="mt-4 display-heavy uppercase text-paint-cream text-[48px] sm:text-[72px] md:text-[92px] lg:text-[112px] leading-[0.9]">

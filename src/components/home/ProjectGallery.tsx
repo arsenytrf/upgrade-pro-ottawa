@@ -4,16 +4,16 @@ import { galleryImages } from "@/data/company";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const CAPTIONS = [
-  { title: "Living Room Refresh", place: "Ottawa · Interior" },
-  { title: "Galley Kitchen",      place: "Kanata · Cabinets" },
-  { title: "Dining Feature Wall", place: "Gatineau · Interior" },
-  { title: "Stairs & Trim",       place: "Nepean · Millwork" },
-  { title: "Open Concept Main",   place: "Orleans · Interior" },
-  { title: "Heritage Siding",     place: "Aylmer · Exterior" },
-  { title: "Bedroom Repaint",     place: "Barrhaven · Interior" },
-  { title: "Hallway & Baseboards",place: "Ottawa · Trim" },
-  { title: "Cabinet Refinish",    place: "Gatineau · Cabinets" },
-  { title: "Bathroom Redo",       place: "Stittsville · Interior" },
+  { title: "Interior Repaint",   place: "Ottawa" },
+  { title: "Cabinet Refinish",   place: "Ottawa + Gatineau" },
+  { title: "Feature Wall",       place: "Ottawa" },
+  { title: "Trim & Millwork",    place: "Ottawa + Gatineau" },
+  { title: "Full Room Repaint",  place: "Ottawa" },
+  { title: "Exterior Project",   place: "Ottawa + Gatineau" },
+  { title: "Bedroom Repaint",    place: "Ottawa" },
+  { title: "Hallway & Baseboards",place: "Ottawa + Gatineau" },
+  { title: "Kitchen Cabinets",   place: "Ottawa" },
+  { title: "Interior Redo",      place: "Ottawa + Gatineau" },
 ];
 
 /* Custom-span layout for editorial rhythm, but strictly photo-first */
@@ -38,7 +38,7 @@ export default function ProjectGallery() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 md:mb-16">
           <div className="lg:col-span-8">
             <ScrollReveal>
-              <span className="stencil text-paint-clay">§ 02 — Recent Work</span>
+              <span className="stencil text-paint-clay">02 — Recent Work</span>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h2 className="mt-4 display-heavy uppercase text-paint-ink text-[48px] sm:text-[72px] md:text-[92px] lg:text-[112px] leading-[0.9]">
