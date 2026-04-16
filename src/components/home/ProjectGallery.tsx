@@ -16,18 +16,18 @@ const CAPTIONS = [
   { title: "Interior Redo",      place: "Ottawa + Gatineau" },
 ];
 
-/* Custom-span layout for editorial rhythm, but strictly photo-first */
+/* Col-span rhythm — each tile owns its own aspect, no forced row heights */
 const SPANS = [
-  "md:col-span-4 md:row-span-2 aspect-auto",
-  "md:col-span-2 aspect-[3/4]",
-  "md:col-span-2 aspect-[3/4]",
-  "md:col-span-3 aspect-[4/3]",
-  "md:col-span-3 aspect-[4/3]",
-  "md:col-span-4 md:row-span-2 aspect-auto",
-  "md:col-span-2 aspect-[3/4]",
-  "md:col-span-2 aspect-[3/4]",
-  "md:col-span-3 aspect-[4/3]",
-  "md:col-span-3 aspect-[4/3]",
+  "md:col-span-2 aspect-[4/3]",
+  "md:col-span-1 aspect-[3/4]",
+  "md:col-span-1 aspect-[3/4]",
+  "md:col-span-2 aspect-[4/3]",
+  "md:col-span-2 aspect-[4/3]",
+  "md:col-span-2 aspect-[4/3]",
+  "md:col-span-1 aspect-[3/4]",
+  "md:col-span-1 aspect-[3/4]",
+  "md:col-span-2 aspect-[4/3]",
+  "md:col-span-2 aspect-[4/3]",
 ];
 
 export default function ProjectGallery() {
@@ -56,7 +56,7 @@ export default function ProjectGallery() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-6 auto-rows-[200px] md:auto-rows-[220px] gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {galleryImages.map((g, i) => {
             const cap = CAPTIONS[i] ?? { title: "Project", place: "" };
             return (
