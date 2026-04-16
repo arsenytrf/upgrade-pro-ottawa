@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Professional painting for Ottawa and Gatineau homes. Interior, exterior, " +
     "kitchen cabinet refinishing, trim, decks, drywall repair. Fully insured, " +
-    "bilingual, and obsessive about prep. Free estimates.",
+    "Fully insured, obsessive about prep. Free estimates.",
 };
 
 export default function RootLayout({

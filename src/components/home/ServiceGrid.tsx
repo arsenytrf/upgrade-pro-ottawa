@@ -28,7 +28,7 @@ export default function ServiceGrid() {
             <ScrollReveal delay={0.2}>
               <p className="text-paint-ink/75 text-lg leading-relaxed">
                 Every job gets the same prep, the same crew, the same paint brands.
-                Fully insured, bilingual, and written in advance.
+                Fully insured, written in advance, finished on time.
               </p>
             </ScrollReveal>
           </div>

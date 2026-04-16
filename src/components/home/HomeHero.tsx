@@ -66,8 +66,8 @@ export default function HomeHero() {
             </h1>
 
             <p data-hero-sub className="mt-10 max-w-xl text-paint-cream/75 text-lg md:text-xl leading-[1.55]">
-              Real prep. Real paint. Done right the first time by a small, bilingual
-              crew serving Ottawa and Gatineau.
+              Real prep. Real paint. Done right the first time by a small,
+              hands-on crew serving Ottawa and Gatineau.
             </p>
 
             <div data-hero-cta className="mt-10 flex flex-wrap items-center gap-3">
@@ -115,9 +115,9 @@ export default function HomeHero() {
         {/* Inline stat strip overlaid at hero bottom */}
         <div data-hero-stats className="mt-16 md:mt-24 border-t border-paint-cream/15 pt-8 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {[
-            { n: "500+",   l: "Homes Painted" },
-            { n: "EN & FR",l: "Bilingue" },
-            { n: "Free",   l: "Written Quotes" },
+            { n: "500+",    l: "Homes Painted" },
+            { n: "24 hrs",  l: "Quote Turnaround" },
+            { n: "Free",    l: "Written Estimates" },
           ].map((s) => (
             <div key={s.l} className="flex items-baseline gap-3">
               <span className="display-heavy text-paint-clay text-4xl md:text-5xl lg:text-6xl">{s.n}</span>

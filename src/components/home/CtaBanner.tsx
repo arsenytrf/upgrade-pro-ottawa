@@ -31,8 +31,8 @@ export default function CtaBanner() {
           <div className="lg:col-span-4 lg:pb-4">
             <ScrollReveal delay={0.2}>
               <p className="text-paint-cream/80 text-lg leading-relaxed mb-8">
-                Free on-site estimates across Ottawa and Gatineau. Bilingual, fully
-                insured, quote in writing.
+                Free on-site estimates across Ottawa and Gatineau. Fully insured,
+                written quote, no pressure.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a href="/contact" className="btn-hard bg-paint-clay text-paint-cream hover:bg-paint-rust">

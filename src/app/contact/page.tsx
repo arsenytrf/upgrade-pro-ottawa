@@ -8,11 +8,11 @@ import QuoteForm from "@/components/contact/QuoteForm";
 
 export const metadata: Metadata = {
   title: `Contact | ${company.name}`,
-  description: `Get a free estimate from ${company.name}. Call ${company.phone}. Bilingual, fully insured painters serving ${company.serviceArea}.`,
+  description: `Get a free estimate from ${company.name}. Call ${company.phone}. Fully insured painters serving ${company.serviceArea}.`,
 };
 
 const CONTACT_CARDS = [
-  { icon: Phone,     label: "Phone",     value: company.phone,          href: `tel:${company.phoneRaw}`, sub: "EN / FR · 7 days" },
+  { icon: Phone,     label: "Phone",     value: company.phone,          href: `tel:${company.phoneRaw}`, sub: "7 days, fast response" },
   { icon: Mail,      label: "Email",     value: company.email,          href: `mailto:${company.email}`, sub: "Responses within 24h" },
   { icon: MapPin,    label: "Based in",  value: company.location,       href: undefined,                 sub: "Ottawa + Gatineau region" },
   { icon: Clock,     label: "Hours",     value: company.hours.weekday,  href: undefined,                 sub: company.hours.weekend },
@@ -42,7 +42,7 @@ export default function ContactPage() {
           <ScrollReveal delay={0.2}>
             <p className="mt-8 max-w-xl text-paint-ink/70 text-lg leading-relaxed">
               Phone, email, Instagram, or the form below. We reply within 24 hours.
-              Bilingual — whichever language works best.
+              Free on-site estimates across Ottawa and Gatineau.
             </p>
           </ScrollReveal>
         </div>

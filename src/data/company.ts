@@ -24,7 +24,7 @@ export const company = {
     weekday: "Mon-Sat: 7:00 AM - 7:00 PM",
     weekend: "Sun: By Appointment",
   },
-  features: ["Fully Insured","Interior & Exterior","Free Estimates","Bilingual — EN / FR"],
+  features: ["Fully Insured","Interior & Exterior","Free Estimates","On-Time Delivery"],
   instagram: "https://instagram.com/upgrade_proottawa/",
   facebook: "https://www.facebook.com/share/1DuXE2e1M5/",
 };

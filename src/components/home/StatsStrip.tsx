@@ -4,10 +4,10 @@ import { sectionImages } from "@/data/company";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const stats = [
-  { n: "500+",    l: "Homes Painted",      sub: "Across Ottawa and Gatineau" },
-  { n: "EN & FR", l: "Bilingual Service",  sub: "English or French — whichever works" },
-  { n: "24 hrs",  l: "Quote Turnaround",   sub: "Written estimate within a day of our visit" },
-  { n: "Free",    l: "Written Quotes",     sub: "Itemized: brand, coats, timeline" },
+  { n: "500+",    l: "Homes Painted",     sub: "Across Ottawa and Gatineau" },
+  { n: "24 hrs",  l: "Quote Turnaround",  sub: "Written estimate within a day of our visit" },
+  { n: "2-Year",  l: "Workmanship Promise", sub: "We come back if something fails" },
+  { n: "Free",    l: "Written Quotes",    sub: "Itemized: brand, coats, timeline" },
 ];
 
 export default function StatsStrip() {

@@ -80,7 +80,7 @@ export default function Footer() {
 
         <div className="pt-10 mt-10 border-t border-paint-cream/15 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-paint-cream/50">
           <p>&copy; {new Date().getFullYear()} {company.name}. All rights reserved.</p>
-          <p>Fully insured · EN / FR · Ottawa + Gatineau</p>
+          <p>Fully insured · Ottawa + Gatineau</p>
         </div>
       </div>
     </footer>

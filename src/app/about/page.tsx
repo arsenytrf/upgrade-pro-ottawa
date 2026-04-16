@@ -7,14 +7,14 @@ import ScrollReveal from "@/components/shared/ScrollReveal";
 
 export const metadata: Metadata = {
   title: `About | ${company.name}`,
-  description: `Bilingual, fully insured painting for Ottawa and Gatineau. Call ${company.phone}.`,
+  description: `Fully insured painting for Ottawa and Gatineau. Call ${company.phone}.`,
 };
 
 const VALUES = [
   { num: "i.",   title: "Prep is the job.",         body: "Sanding, patching, masking, priming. The work you don't see is the work that makes the paint last." },
   { num: "ii.",  title: "On schedule, always.",     body: "Start when we say we'll start. Finish when we say we'll finish. Daily updates, no drift." },
   { num: "iii.", title: "Spotless site.",           body: "Drop cloths, plastic, tape, tools packed up each evening. Left cleaner than we found it." },
-  { num: "iv.",  title: "Straight talk, EN / FR.",  body: "Bilingual and honest. If something's off, we tell you. If a cost changes, we tell you first." },
+  { num: "iv.",  title: "Straight talk.",           body: "Honest updates every day. If something's off, we tell you. If a cost changes, we tell you first." },
 ];
 
 export default function AboutPage() {
@@ -44,8 +44,8 @@ export default function AboutPage() {
               <ScrollReveal delay={0.2}>
                 <p className="text-paint-ink/70 text-lg leading-relaxed">
                   Upgrade Pro is a small painting studio in Ottawa. Vasyl runs every job
-                  personally, quotes every job in writing, and works in whichever of
-                  English or French suits the client.
+                  personally, quotes every job in writing, and doesn&rsquo;t close a project
+                  without a walk-through first.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link href="/contact" className="pill bg-paint-ink text-paint-bone hover:bg-paint-navy">
@@ -134,7 +134,7 @@ export default function AboutPage() {
             </div>
             <div className="lg:col-span-4 lg:pb-3">
               <p className="text-paint-bone/80 text-lg mb-6">
-                Bilingual. Fully insured. Free on-site estimates.
+                Fully insured. Free on-site estimates. Written quotes.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/contact" className="pill bg-paint-bone text-paint-ink hover:bg-paint-ink hover:text-paint-bone">

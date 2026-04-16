@@ -8,7 +8,7 @@ const REASONS = [
   { n: "02", title: "Written quotes, itemized.",  body: "Brand, finish, coats, timeline. Same price at the end as the start." },
   { n: "03", title: "Fully insured.",             body: "WSIB + liability. You're covered from the moment we walk in." },
   { n: "04", title: "Spotless worksite.",         body: "Drop cloths everywhere, furniture wrapped, tools packed daily." },
-  { n: "05", title: "English & French.",          body: "Service in whichever language feels natural. Ottawa and Gatineau treated the same." },
+  { n: "05", title: "On-time, every time.",       body: "Start date set in writing. Daily updates. We finish when we say we'll finish." },
   { n: "06", title: "Premium paints only.",       body: "Benjamin Moore, Sherwin-Williams, Sico. Low-VOC, safe for kids and pets." },
 ];
 
