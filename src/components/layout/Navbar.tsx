@@ -29,18 +29,16 @@ export default function Navbar() {
           className={cn(
             "transition-all duration-300",
             scrolled
-              ? "bg-paint-ink/95 backdrop-blur-md border-b border-paint-cream/10"
-              : "bg-gradient-to-b from-paint-ink/70 via-paint-ink/40 to-transparent"
+              ? "bg-paint-cream/92 backdrop-blur-md border-b border-paint-ink/10"
+              : "bg-paint-cream/70 backdrop-blur-sm"
           )}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14 h-16 md:h-20 flex items-center justify-between gap-6">
-            {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
               <img src={logoSrc} alt="Upgrade Pro" className="h-10 md:h-11 w-auto shrink-0" />
               <span className="sr-only">Upgrade Pro · Ottawa Painters</span>
             </Link>
 
-            {/* Desktop links */}
             <div className="hidden lg:flex items-center gap-9">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
@@ -50,7 +48,7 @@ export default function Navbar() {
                     href={link.href}
                     className={cn(
                       "relative stencil transition-colors duration-300",
-                      isActive ? "text-paint-clay" : "text-paint-cream/70 hover:text-paint-cream"
+                      isActive ? "text-paint-clay" : "text-paint-ink/70 hover:text-paint-ink"
                     )}
                   >
                     {link.label}
@@ -59,7 +57,7 @@ export default function Navbar() {
                 );
               })}
 
-              <a href={`tel:${company.phoneRaw}`} className="flex items-center gap-1.5 text-sm text-paint-cream/75 hover:text-paint-cream transition-colors">
+              <a href={`tel:${company.phoneRaw}`} className="flex items-center gap-1.5 text-sm text-paint-ink/75 hover:text-paint-ink transition-colors">
                 <Phone className="h-3.5 w-3.5" />
                 {company.phone}
               </a>
@@ -70,10 +68,10 @@ export default function Navbar() {
             </div>
 
             <div className="lg:hidden flex items-center gap-3">
-              <a href={`tel:${company.phoneRaw}`} className="p-2 text-paint-cream hover:text-paint-clay" aria-label="Call now">
+              <a href={`tel:${company.phoneRaw}`} className="p-2 text-paint-ink hover:text-paint-clay" aria-label="Call now">
                 <Phone className="h-5 w-5" />
               </a>
-              <button onClick={() => setDrawerOpen(true)} className="p-2 text-paint-cream hover:text-paint-clay" aria-label="Open menu">
+              <button onClick={() => setDrawerOpen(true)} className="p-2 text-paint-ink hover:text-paint-clay" aria-label="Open menu">
                 <Menu className="h-6 w-6" />
               </button>
             </div>

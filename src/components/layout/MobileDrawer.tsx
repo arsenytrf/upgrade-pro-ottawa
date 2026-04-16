@@ -39,7 +39,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[60] bg-paint-ink/60 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 z-[60] bg-paint-ink/40 backdrop-blur-sm lg:hidden"
             onClick={onClose}
           />
           <motion.aside
@@ -48,14 +48,14 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] as const }}
-            className="fixed top-0 right-0 bottom-0 z-[70] w-[86%] max-w-sm bg-paint-ink text-paint-cream flex flex-col lg:hidden"
+            className="fixed top-0 right-0 bottom-0 z-[70] w-[86%] max-w-sm bg-paint-cream text-paint-ink flex flex-col lg:hidden"
           >
-            <div className="flex items-center justify-between px-6 py-5 border-b border-paint-cream/10">
+            <div className="flex items-center justify-between px-6 py-5 border-b border-paint-ink/10">
               <Link href="/" onClick={onClose} className="flex items-center gap-3">
                 <img src={logoSrc} alt="Upgrade Pro" className="h-10 w-auto" />
                 <span className="sr-only">Upgrade Pro · Ottawa Painters</span>
               </Link>
-              <button onClick={onClose} className="p-2 text-paint-cream/60 hover:text-paint-cream" aria-label="Close menu">
+              <button onClick={onClose} className="p-2 text-paint-ink/60 hover:text-paint-ink" aria-label="Close menu">
                 <X className="h-6 w-6" />
               </button>
             </div>
@@ -66,7 +66,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
                   <Link
                     href={link.href}
                     onClick={onClose}
-                    className="block py-2 display-heavy uppercase text-5xl text-paint-cream hover:text-paint-clay transition-colors"
+                    className="block py-2 display-heavy uppercase text-5xl text-paint-ink hover:text-paint-clay transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -74,16 +74,16 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
               ))}
             </nav>
 
-            <div className="px-6 py-6 border-t border-paint-cream/15 space-y-3">
-              <a href={`tel:${company.phoneRaw}`} className="flex items-center gap-3 text-paint-cream/80 hover:text-paint-cream">
+            <div className="px-6 py-6 border-t border-paint-ink/15 space-y-3">
+              <a href={`tel:${company.phoneRaw}`} className="flex items-center gap-3 text-paint-ink/80 hover:text-paint-ink">
                 <Phone className="h-4 w-4" />
                 <span className="text-sm font-medium">{company.phone}</span>
               </a>
-              <div className="flex items-center gap-3 text-paint-cream/70">
+              <div className="flex items-center gap-3 text-paint-ink/70">
                 <MapPin className="h-4 w-4" />
                 <span className="text-sm">{company.location}</span>
               </div>
-              <div className="flex items-center gap-3 text-paint-cream/70">
+              <div className="flex items-center gap-3 text-paint-ink/70">
                 <Clock className="h-4 w-4" />
                 <span className="text-sm">{company.hours.weekday}</span>
               </div>
