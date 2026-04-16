@@ -1,5 +1,4 @@
 import HomeHero from "@/components/home/HomeHero";
-import StatsStrip from "@/components/home/StatsStrip";
 import MarqueeStrip from "@/components/home/MarqueeStrip";
 import ServiceGrid from "@/components/home/ServiceGrid";
 import ProjectGallery from "@/components/home/ProjectGallery";
@@ -16,7 +15,6 @@ export default function Home() {
       <HomeHero />
       <MarqueeStrip />
       <ServiceGrid />
-      <StatsStrip />
       <ProjectGallery />
       <ParallaxBreak />
       <WhyChooseUs />
