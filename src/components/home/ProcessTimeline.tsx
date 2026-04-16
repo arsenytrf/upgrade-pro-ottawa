@@ -38,7 +38,7 @@ export default function ProcessTimeline() {
             <ScrollReveal key={s.n} delay={i * 0.08}>
               <article className="relative overflow-hidden photo-hover group bg-paint-charcoal">
                 <div className="relative aspect-[4/5]">
-                  <img src={sectionImages.process[i]} alt="" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                  <img src={sectionImages.process[i]} alt="" className="absolute inset-0 w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-paint-ink/85 via-paint-ink/25 to-transparent" />
                   <div className="absolute top-5 left-5">
                     <span className="display-heavy italic text-5xl md:text-6xl text-paint-clay">{s.n}</span>

@@ -45,7 +45,7 @@ export default function ServiceGrid() {
                 <img
                   src={servicePhotos[i] ?? servicePhotos[0]}
                   alt={service.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-85 transition-opacity duration-500"
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/55 to-paint-ink/15" />
 
