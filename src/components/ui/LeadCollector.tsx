@@ -256,7 +256,7 @@ export default function LeadCollector() {
             <motion.div
               key="chat"
               ref={panelRef}
-              className="fixed z-[70] flex flex-col overflow-hidden bg-white rounded-2xl border border-paint-ink/10 shadow-[0_40px_80px_-30px_rgba(20,17,13,0.4)] bottom-4 right-4 left-4 top-16 max-h-[calc(100dvh-5rem)] lg:inset-auto lg:bottom-6 lg:right-6 lg:top-auto lg:left-auto lg:w-[400px] lg:h-[620px]"
+              className="fixed z-[70] flex flex-col overflow-hidden bg-white rounded-2xl border border-paint-ink/10 shadow-[0_40px_80px_-30px_rgba(20,17,13,0.4)] bottom-4 right-4 left-4 top-auto max-h-[70dvh] lg:inset-auto lg:bottom-6 lg:right-6 lg:top-auto lg:left-auto lg:w-[400px] lg:h-[620px]"
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.95 }}
