@@ -35,30 +35,32 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="lg:col-span-3">
-            <p className="stencil text-paint-ink/45 mb-5">Pages</p>
-            <ul className="space-y-3">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="display-cond text-paint-ink/85 hover:text-paint-clay text-xl transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <div className="lg:col-span-7 grid grid-cols-2 gap-8 lg:grid-cols-7">
+            <div className="col-span-1 lg:col-span-3">
+              <p className="stencil text-paint-ink/45 mb-5">Pages</p>
+              <ul className="space-y-3">
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="display-cond text-paint-ink/85 hover:text-paint-clay text-xl transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div className="lg:col-span-4">
-            <p className="stencil text-paint-ink/45 mb-5">Services</p>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
-              {services.map((s) => (
-                <li key={s.slug}>
-                  <Link href="/services" className="text-paint-ink/70 hover:text-paint-clay text-sm transition-colors">
-                    {s.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className="col-span-1 lg:col-span-4">
+              <p className="stencil text-paint-ink/45 mb-5">Services</p>
+              <ul className="space-y-3">
+                {services.map((s) => (
+                  <li key={s.slug}>
+                    <Link href="/services" className="text-paint-ink/70 hover:text-paint-clay text-sm transition-colors">
+                      {s.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
