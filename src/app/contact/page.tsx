@@ -156,8 +156,16 @@ export default function ContactPage() {
       </section>
 
       {/* ───────── CTA ───────── */}
-      <section className="bg-paint-clay text-paint-cream py-20 md:py-28">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14 text-center">
+      <section className="relative bg-paint-clay text-paint-cream py-20 md:py-28 overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.15]"
+          style={{
+            backgroundImage: "radial-gradient(circle, var(--color-paint-cream) 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+          aria-hidden="true"
+        />
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14 text-center">
           <span className="stencil text-paint-cream/80">Rather Just Call?</span>
           <h2 className="mt-4 display-heavy uppercase text-[48px] sm:text-[72px] md:text-[96px] lg:text-[128px] leading-[0.88]">
             Skip the form.<br />
