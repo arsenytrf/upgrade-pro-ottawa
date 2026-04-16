@@ -112,17 +112,17 @@ export default function HomeHero() {
           </div>
         </div>
 
-        {/* Inline stat strip overlaid at hero bottom */}
-        <div data-hero-stats className="mt-16 md:mt-24 border-t border-paint-cream/15 pt-8 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        {/* Trust strip — facts only, no invented numbers */}
+        <div data-hero-stats className="mt-16 md:mt-24 border-t border-paint-cream/15 pt-8 flex flex-wrap items-center gap-x-10 gap-y-4">
           {[
-            { n: "500+",    l: "Homes Painted" },
-            { n: "24 hrs",  l: "Quote Turnaround" },
-            { n: "Free",    l: "Written Estimates" },
-          ].map((s) => (
-            <div key={s.l} className="flex items-baseline gap-3">
-              <span className="display-heavy text-paint-clay text-4xl md:text-5xl lg:text-6xl">{s.n}</span>
-              <span className="stencil text-paint-cream/60">{s.l}</span>
-            </div>
+            "Fully Insured",
+            "Free Written Estimates",
+            "Ottawa + Gatineau",
+          ].map((t) => (
+            <span key={t} className="flex items-center gap-2.5 stencil text-paint-cream/75">
+              <span className="w-1.5 h-1.5 bg-paint-clay" />
+              {t}
+            </span>
           ))}
         </div>
       </div>

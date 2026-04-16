@@ -5,6 +5,7 @@ import ProjectGallery from "@/components/home/ProjectGallery";
 import ParallaxBreak from "@/components/home/ParallaxBreak";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import ProcessTimeline from "@/components/home/ProcessTimeline";
+import FAQ from "@/components/home/FAQ";
 import BookingWizard from "@/components/home/BookingWizard";
 import ServiceAreaMap from "@/components/home/ServiceAreaMap";
 import CtaBanner from "@/components/home/CtaBanner";
@@ -19,6 +20,7 @@ export default function Home() {
       <ParallaxBreak />
       <WhyChooseUs />
       <ProcessTimeline />
+      <FAQ />
       <section id="estimate" className="relative bg-paint-ink text-paint-cream py-24 md:py-32 border-t border-paint-cream/10 overflow-hidden scroll-mt-20">
         {/* Photo backdrop */}
         <div
