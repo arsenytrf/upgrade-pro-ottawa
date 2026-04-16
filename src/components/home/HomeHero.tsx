@@ -60,9 +60,9 @@ export default function HomeHero() {
             </div>
 
             <h1 data-hero-title className="display-heavy uppercase text-paint-cream">
-              <span className="block text-[68px] sm:text-[96px] md:text-[128px] lg:text-[168px] xl:text-[200px]">Interior.</span>
-              <span className="block text-[68px] sm:text-[96px] md:text-[128px] lg:text-[168px] xl:text-[200px] text-paint-clay">Exterior.</span>
-              <span className="block text-[68px] sm:text-[96px] md:text-[128px] lg:text-[168px] xl:text-[200px]">Cabinets.</span>
+              <span className="block text-[48px] sm:text-[64px] md:text-[84px] lg:text-[108px] xl:text-[128px]">Interior.</span>
+              <span className="block text-[48px] sm:text-[64px] md:text-[84px] lg:text-[108px] xl:text-[128px] text-paint-clay">Exterior.</span>
+              <span className="block text-[48px] sm:text-[64px] md:text-[84px] lg:text-[108px] xl:text-[128px]">Cabinets.</span>
             </h1>
 
             <p data-hero-sub className="mt-10 max-w-xl text-paint-cream/75 text-lg md:text-xl leading-[1.55]">
