@@ -1,5 +1,6 @@
 const isProd = process.env.NODE_ENV === "production";
 export const basePath = isProd ? "/upgrade-pro-ottawa" : "";
+export const siteUrl = "https://arsenytrf.github.io/upgrade-pro-ottawa";
 
 const img = (p: string) => `${basePath}${p}`;
 
@@ -18,7 +19,7 @@ export const company = {
   ],
   tagline: "Painting Done Right. The First Time.",
   description:
-    "Professional interior, exterior, and kitchen cabinet painting for Ottawa and Gatineau homes. Meticulous prep, premium materials, and finishes that hold up — year after year.",
+    "Professional interior, exterior, and kitchen cabinet painting for Ottawa and Gatineau homes. Benjamin Moore and Sherwin-Williams paints, meticulous prep, and finishes that hold up — year after year.",
   formAction: "https://formspree.io/f/placeholder",
   hours: {
     weekday: "Mon-Sat: 7:00 AM - 7:00 PM",
@@ -54,17 +55,13 @@ export const sectionImages = {
   process:  [vert[1], vert[2], tall[4], tall[5]],
 };
 
-/* Service cards — 9 photos, one per service (matches services.ts order) */
+/* Service cards — 5 photos, one per service (matches services.ts order) */
 export const servicePhotos = [
   tall[6],   // interior
   wide[3],   // exterior
   land[0],   // cabinets
+  land[5],   // accent walls
   tall[7],   // trim
-  tall[8],   // drywall
-  tall[9],   // wallpaper
-  land[1],   // decks
-  wide[4],   // commercial
-  land[2],   // color
 ];
 
 /* Big gallery — the remaining work shots */

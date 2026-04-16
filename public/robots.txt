@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arsenytrf.github.io/upgrade-pro-ottawa/sitemap.xml

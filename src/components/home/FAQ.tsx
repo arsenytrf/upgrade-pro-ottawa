@@ -10,7 +10,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "How many coats of paint do you do?",
-    a: "Minimum two finish coats on walls and ceilings. Kitchen cabinets get a bond-coat primer plus two sprayed finish coats. Dark-to-light colour changes may need an extra coat — we'll tell you upfront in the quote.",
+    a: "Minimum two finish coats on walls and ceilings. Kitchen cabinets get two coats of primer and three sprayed finish coats — all cured properly between layers. Dark-to-light colour changes may need an extra coat — we'll tell you upfront in the quote.",
   },
   {
     q: "How long does an interior paint job take?",
@@ -22,7 +22,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "What paint brands do you use?",
-    a: "Benjamin Moore, Sherwin-Williams, and Sico as defaults. All low-VOC, safe for kids and pets. If you've got a specific paint or colour in mind, bring it — we'll work with it.",
+    a: "Benjamin Moore and Sherwin-Williams. All low-VOC, safe for kids and pets. If you've got a specific paint or colour in mind, bring it — we'll work with it.",
   },
   {
     q: "Can I get a quote without an on-site visit?",

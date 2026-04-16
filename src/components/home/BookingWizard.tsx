@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import {
-  Home, Hammer, ChefHat, DoorOpen, Scissors, TreePine, Building2, Palette, PaintBucket,
+  Home, Hammer, ChefHat, DoorOpen, Palette, PaintBucket,
   CheckCircle2, ArrowRight, ArrowLeft, Phone, Send, Loader2, Shield, Check,
   Clock, Ruler, User, type LucideIcon,
 } from "lucide-react";
@@ -26,15 +26,11 @@ interface WizardData {
 }
 
 const SERVICES: ServiceOption[] = [
-  { id: "interior", label: "Interior Painting", icon: PaintBucket, desc: "Walls, ceilings, accent walls" },
+  { id: "interior", label: "Interior Painting", icon: PaintBucket, desc: "Walls, ceilings, full rooms" },
   { id: "exterior", label: "Exterior Painting", icon: Home, desc: "Siding, stucco, brick, trim" },
   { id: "cabinets", label: "Kitchen Cabinets", icon: ChefHat, desc: "Sprayed, factory-smooth finish" },
-  { id: "trim", label: "Trim & Doors", icon: DoorOpen, desc: "Baseboards, crown, casings" },
-  { id: "drywall", label: "Drywall Repair", icon: Hammer, desc: "Patching + prep before paint" },
-  { id: "wallpaper", label: "Wallpaper Removal", icon: Scissors, desc: "Strip, repair, repaint" },
-  { id: "decks", label: "Decks & Fences", icon: TreePine, desc: "Staining, sealing, refinish" },
-  { id: "commercial", label: "Commercial", icon: Building2, desc: "Offices, rentals, retail" },
-  { id: "color", label: "Color Consultation", icon: Palette, desc: "Free with every quote" },
+  { id: "accent", label: "Accent Walls", icon: Palette, desc: "Bold colour, feature walls" },
+  { id: "trim", label: "Trim Work", icon: DoorOpen, desc: "Baseboards, crown, casings" },
 ];
 
 const SCOPES: ScopeOption[] = [

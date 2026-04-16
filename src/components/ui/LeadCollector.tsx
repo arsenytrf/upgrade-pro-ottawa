@@ -41,10 +41,8 @@ const serviceOptions: Option[] = [
   { label: "Interior Painting", value: "Interior Painting" },
   { label: "Exterior Painting", value: "Exterior Painting" },
   { label: "Kitchen Cabinets", value: "Kitchen Cabinets" },
-  { label: "Trim & Doors", value: "Trim & Doors" },
-  { label: "Deck / Fence", value: "Deck / Fence" },
-  { label: "Wallpaper Removal", value: "Wallpaper Removal" },
-  { label: "Commercial", value: "Commercial" },
+  { label: "Accent Walls", value: "Accent Walls" },
+  { label: "Trim Work", value: "Trim Work" },
   { label: "Something Else", value: "Something Else" },
 ];
 
@@ -233,7 +231,7 @@ export default function LeadCollector() {
               <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-paint-clay border-2 border-paint-ink" />
             </span>
             <span className="flex flex-col items-start min-w-0">
-              <span className="text-sm font-medium text-paint-cream leading-tight">Chat with Vasyl</span>
+              <span className="text-sm font-medium text-paint-cream leading-tight">Chat with us</span>
               <span className="text-[10px] uppercase tracking-[0.15em] text-paint-cream/60 leading-tight mt-0.5">Usually replies in 24h</span>
             </span>
           </motion.button>

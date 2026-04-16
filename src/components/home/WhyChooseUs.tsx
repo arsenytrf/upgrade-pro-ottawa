@@ -9,7 +9,7 @@ const REASONS = [
   { n: "03", title: "Fully insured.",             body: "WSIB + liability. You're covered from the moment we walk in." },
   { n: "04", title: "Spotless worksite.",         body: "Drop cloths everywhere, furniture wrapped, tools packed daily." },
   { n: "05", title: "On-time, every time.",       body: "Start date set in writing. Daily updates. We finish when we say we'll finish." },
-  { n: "06", title: "Premium paints only.",       body: "Benjamin Moore, Sherwin-Williams, Sico. Low-VOC, safe for kids and pets." },
+  { n: "06", title: "Premium paints only.",       body: "Benjamin Moore and Sherwin-Williams. Low-VOC, safe for kids and pets." },
 ];
 
 export default function WhyChooseUs() {
@@ -18,7 +18,7 @@ export default function WhyChooseUs() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
-          {/* Left — Vasyl-the-painter portrait photo */}
+          {/* Left — portrait photo */}
           <ScrollReveal className="lg:col-span-5 lg:sticky lg:top-28">
             <div className="relative aspect-[3/4] overflow-hidden photo-hover bg-paint-ink">
               <img

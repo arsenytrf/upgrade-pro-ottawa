@@ -1,7 +1,6 @@
 const BANNER_ITEMS = [
-  "Interior Painting","Exterior Painting","Kitchen Cabinets","Trim & Doors",
-  "Drywall Repair","Wallpaper Removal","Decks & Fences","Commercial",
-  "Color Consultation","Ottawa","Gatineau","Fully Insured","Free Estimates",
+  "Interior Painting","Exterior Painting","Kitchen Cabinets","Accent Walls",
+  "Trim Work","Ottawa","Gatineau","Fully Insured","Free Estimates",
 ];
 
 export default function MarqueeStrip() {

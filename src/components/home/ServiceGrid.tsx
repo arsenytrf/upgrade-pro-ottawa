@@ -15,11 +15,11 @@ export default function ServiceGrid() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 md:mb-16">
           <div className="lg:col-span-8">
             <ScrollReveal>
-              <span className="stencil text-paint-clay">01 — The Services</span>
+              <span className="stencil text-paint-clay">The Services</span>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h2 className="mt-4 display-heavy uppercase text-paint-ink text-[48px] sm:text-[72px] md:text-[92px] lg:text-[112px] leading-[0.9]">
-                Nine Services.<br />
+                Five Services.<br />
                 <span className="text-paint-clay">One Crew.</span>
               </h2>
             </ScrollReveal>
@@ -49,11 +49,8 @@ export default function ServiceGrid() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-paint-ink via-paint-ink/55 to-paint-ink/15" />
 
-                {/* Number + arrow */}
-                <div className="absolute top-5 left-5 right-5 flex items-start justify-between text-paint-cream">
-                  <span className="display-heavy italic text-4xl md:text-5xl text-paint-clay">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+                {/* Arrow */}
+                <div className="absolute top-5 right-5 text-paint-cream">
                   <span className="w-10 h-10 border border-paint-cream/40 flex items-center justify-center group-hover:bg-paint-clay group-hover:border-paint-clay transition-all duration-500">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
@@ -61,8 +58,7 @@ export default function ServiceGrid() {
 
                 {/* Title + descr anchored bottom */}
                 <div className="absolute left-5 right-5 bottom-5 md:left-7 md:right-7 md:bottom-7 text-paint-cream">
-                  <span className="stencil text-paint-cream/65">Service · {String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-2 display-cond text-3xl md:text-4xl leading-[0.95]">
+                  <h3 className="display-cond text-3xl md:text-4xl leading-[0.95]">
                     {service.title}
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-paint-cream/80 max-w-[34ch] line-clamp-3">

@@ -1,6 +1,7 @@
 import HomeHero from "@/components/home/HomeHero";
 import MarqueeStrip from "@/components/home/MarqueeStrip";
 import ServiceGrid from "@/components/home/ServiceGrid";
+import CabinetProcess from "@/components/home/CabinetProcess";
 import ProjectGallery from "@/components/home/ProjectGallery";
 import ParallaxBreak from "@/components/home/ParallaxBreak";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
@@ -16,6 +17,7 @@ export default function Home() {
       <HomeHero />
       <MarqueeStrip />
       <ServiceGrid />
+      <CabinetProcess />
       <ProjectGallery />
       <ParallaxBreak />
       <WhyChooseUs />

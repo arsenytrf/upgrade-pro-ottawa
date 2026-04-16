@@ -7,8 +7,15 @@ import ScrollReveal from "@/components/shared/ScrollReveal";
 import QuoteForm from "@/components/contact/QuoteForm";
 
 export const metadata: Metadata = {
-  title: `Contact | ${company.name}`,
-  description: `Get a free estimate from ${company.name}. Call ${company.phone}. Fully insured painters serving ${company.serviceArea}.`,
+  title: "Contact & Free Estimate",
+  description: `Get a free painting estimate from Upgrade Pro. Call ${company.phone} or fill out the form. Fully insured painters serving Ottawa, Gatineau, Kanata, Orleans, Nepean, and Barrhaven.`,
+  alternates: { canonical: "/contact/" },
+  openGraph: {
+    title: "Contact Upgrade Pro | Free Painting Estimate in Ottawa",
+    description: `Get a free on-site painting estimate. Written quote within 24 hours. Call ${company.phone} — serving Ottawa & Gatineau.`,
+    url: "/contact/",
+    images: [{ url: "/og-home.png", width: 1200, height: 630, alt: "Contact Upgrade Pro for a free painting estimate" }],
+  },
 };
 
 const CONTACT_CARDS = [

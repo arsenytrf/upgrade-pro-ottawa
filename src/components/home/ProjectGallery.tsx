@@ -49,7 +49,7 @@ export default function ProjectGallery() {
           <div className="lg:col-span-4 lg:pb-4">
             <ScrollReveal delay={0.2}>
               <p className="text-paint-ink/75 leading-relaxed">
-                Everything here was painted by Vasyl and the crew. Shot on-site, no filters,
+                Everything here was painted by our crew. Shot on-site, no filters,
                 no stock — the actual finish you&rsquo;d get.
               </p>
             </ScrollReveal>

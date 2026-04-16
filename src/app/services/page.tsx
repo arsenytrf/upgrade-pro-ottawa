@@ -7,20 +7,23 @@ import { services } from "@/data/services";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: `Services | ${company.name}`,
-  description: `Interior, exterior, and cabinet painting for Ottawa and Gatineau. Call ${company.phone}.`,
+  title: "Painting Services",
+  description: `Interior painting, exterior painting, kitchen cabinet refinishing, accent walls, and trim work for Ottawa and Gatineau homes. Fully insured, free estimates. Call ${company.phone}.`,
+  alternates: { canonical: "/services/" },
+  openGraph: {
+    title: "Painting Services | Upgrade Pro Ottawa",
+    description: `Interior, exterior, cabinet, accent wall, and trim painting for Ottawa and Gatineau. Benjamin Moore & Sherwin-Williams. Free estimates — call ${company.phone}.`,
+    url: "/services/",
+    images: [{ url: "/og-home.png", width: 1200, height: 630, alt: "Upgrade Pro painting services in Ottawa" }],
+  },
 };
 
 const HIGHLIGHTS: Record<string, string[]> = {
-  interior:   ["Walls, ceilings, feature walls, trim","Furniture moved, floors covered","Benjamin Moore · Sherwin-Williams · Sico"],
+  interior:   ["Walls, ceilings, full rooms, trim","Furniture moved, floors covered","Benjamin Moore · Sherwin-Williams"],
   exterior:   ["Pressure wash, scrape, caulk, prime — in that order","Siding, stucco, brick, fences, doors","Weather-rated paints for Ottawa winters"],
-  cabinets:   ["Doors off, hardware labeled","Degrease · sand · bond-coat primer · 2 finish coats","Sprayed in a controlled setup — factory-smooth"],
+  cabinets:   ["Doors off, hardware labeled","Degrease · sand · 2 coats primer · 3 coats paint","Spray only — factory-smooth, fully cured"],
+  accent:     ["Bold colour, textured finishes, feature walls","Precise masking for clean edges","Benjamin Moore · Sherwin-Williams"],
   trim:       ["Baseboards, crown, casings, interior doors","Sprayed or brushed to suit","Dust-controlled, crisp edges"],
-  drywall:    ["Nail pops, cracks, dents, ceiling repairs","Proper skim coats — no telegraphing","Wall prepped before a brush touches it"],
-  wallpaper:  ["Steam removal, adhesive strip, repair","Failed primer coats corrected","Paint-ready walls guaranteed"],
-  decks:      ["Sanding, cleaning, defect repair","Species-appropriate stains and sealers","Rated for freeze-thaw cycles"],
-  commercial: ["Offices, retail, rental turnovers, multi-unit","Evening and weekend scheduling","WSIB + liability coverage"],
-  color:      ["Free consultation with every quote","Large sample boards, not tiny chips","Lighting checked at multiple times of day"],
 };
 
 export default function ServicesPage() {
@@ -53,7 +56,7 @@ export default function ServicesPage() {
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <p className="mt-8 max-w-xl text-paint-cream/75 text-lg leading-relaxed">
-              Nine services, one crew. Every one gets the prep it actually needs —
+              Five services, one crew. Every one gets the prep it actually needs —
               not the version that fits someone else&rsquo;s margin.
             </p>
           </ScrollReveal>
@@ -68,7 +71,6 @@ export default function ServicesPage() {
             {services.map((service, i) => {
               const isEven = i % 2 === 1;
               const highlights = HIGHLIGHTS[service.slug] ?? [];
-              const number = String(i + 1).padStart(2, "0");
               const photo = servicePhotos[i] ?? servicePhotos[0];
 
               return (
@@ -80,20 +82,12 @@ export default function ServicesPage() {
                         <div className="relative aspect-[5/6] overflow-hidden photo-hover group bg-paint-ink">
                           <img src={photo} alt={service.title} className="absolute inset-0 w-full h-full object-cover" />
                           <div className="absolute inset-0 bg-gradient-to-t from-paint-ink/70 via-paint-ink/10 to-transparent" />
-                          {/* Top-left number tag */}
-                          <div className="absolute top-5 left-5 flex items-center gap-2">
-                            <span className="stencil bg-paint-ink/80 backdrop-blur text-paint-cream px-3 py-2">Service · {number}</span>
-                          </div>
-                          {/* Corner numeral */}
-                          <div className="absolute bottom-5 right-5">
-                            <span className="display-heavy italic text-6xl md:text-7xl text-paint-clay leading-none">{number}</span>
-                          </div>
                         </div>
                       </div>
 
                       {/* Copy */}
                       <div className={`lg:col-span-6 ${isEven ? "lg:order-1" : ""}`}>
-                        <span className="stencil text-paint-clay">Service · {number}</span>
+                        <span className="stencil text-paint-clay">{service.title}</span>
                         <h2 className="mt-3 display-heavy uppercase text-paint-ink text-4xl md:text-5xl lg:text-6xl leading-[0.92]">
                           {service.title.split(" ").slice(0, -1).join(" ")}<br />
                           <span className="text-paint-clay">{service.title.split(" ").slice(-1)}.</span>

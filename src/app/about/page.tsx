@@ -6,8 +6,15 @@ import { company, sectionImages, galleryImages } from "@/data/company";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: `About | ${company.name}`,
-  description: `Fully insured painting for Ottawa and Gatineau. Call ${company.phone}.`,
+  title: "About",
+  description: `Upgrade Pro is a small, owner-operated painting crew in Ottawa. Fully insured, obsessive about prep, and on every job personally. Benjamin Moore & Sherwin-Williams paints. Call ${company.phone}.`,
+  alternates: { canonical: "/about/" },
+  openGraph: {
+    title: "About Upgrade Pro | Ottawa Painters",
+    description: "Owner-operated painting crew in Ottawa. Fully insured, meticulous prep, premium paints. Free on-site estimates.",
+    url: "/about/",
+    images: [{ url: "/og-home.png", width: 1200, height: 630, alt: "About Upgrade Pro Ottawa painters" }],
+  },
 };
 
 const VALUES = [
@@ -98,9 +105,9 @@ export default function AboutPage() {
                   about what each job takes.
                 </p>
                 <p>
-                  Walls, ceilings, trim, doors, kitchen cabinets, exterior siding, fences,
-                  decks. One crew covers it all. Benjamin Moore, Sherwin-Williams, and
-                  Sico paints. Low-VOC finishes, safe for kids and pets.
+                  Walls, ceilings, trim, kitchen cabinets, accent walls, exterior siding.
+                  One crew covers it all. Benjamin Moore and Sherwin-Williams paints.
+                  Low-VOC finishes, safe for kids and pets.
                 </p>
                 <p>
                   Every quote starts with a free on-site visit. You get it in writing
