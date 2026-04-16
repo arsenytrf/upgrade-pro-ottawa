@@ -142,7 +142,7 @@ export default function ServicesPage() {
       {/* ───────── CTA ───────── */}
       <section className="relative bg-paint-ink text-paint-cream overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-55"
+          className="absolute inset-0 bg-cover bg-top opacity-55"
           style={{ backgroundImage: `url(${sectionImages.cta})` }}
           aria-hidden="true"
         />

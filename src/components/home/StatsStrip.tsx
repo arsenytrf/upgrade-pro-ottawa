@@ -14,7 +14,7 @@ export default function StatsStrip() {
   return (
     <section className="relative bg-paint-ink text-paint-cream overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-35"
+        className="absolute inset-0 bg-cover bg-top opacity-35"
         style={{ backgroundImage: `url(${sectionImages.stats})` }}
         aria-hidden="true"
       />

@@ -7,7 +7,7 @@ export default function ParallaxBreak() {
       aria-label="Studio statement"
     >
       <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        className="absolute inset-0 bg-cover bg-top bg-fixed"
         style={{ backgroundImage: `url(${sectionImages.parallax})` }}
         aria-hidden="true"
       />

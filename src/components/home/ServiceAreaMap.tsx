@@ -6,7 +6,7 @@ import ScrollReveal from "@/components/shared/ScrollReveal";
 export default function ServiceAreaMap() {
   return (
     <section className="relative bg-paint-ink text-paint-cream py-24 md:py-32 overflow-hidden" aria-labelledby="area-heading">
-      <div className="absolute inset-0 bg-cover bg-center opacity-25" style={{ backgroundImage: `url(${sectionImages.area})` }} aria-hidden="true" />
+      <div className="absolute inset-0 bg-cover bg-top opacity-25" style={{ backgroundImage: `url(${sectionImages.area})` }} aria-hidden="true" />
       <div className="absolute inset-0 bg-gradient-to-b from-paint-ink via-paint-ink/90 to-paint-ink" aria-hidden="true" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14">

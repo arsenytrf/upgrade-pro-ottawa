@@ -121,7 +121,7 @@ export default function AboutPage() {
       {/* ───────── Values ───────── */}
       <section className="relative bg-paint-ink text-paint-cream py-24 md:py-32 overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-25"
+          className="absolute inset-0 bg-cover bg-top opacity-25"
           style={{ backgroundImage: `url(${galleryImages[5].src})` }}
           aria-hidden="true"
         />
