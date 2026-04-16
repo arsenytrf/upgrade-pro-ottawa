@@ -297,7 +297,7 @@ export default function LeadCollector() {
                           </div>
                         ) : (
                           <div className="flex gap-2 max-w-[90%]">
-                            <span className="shrink-0 w-7 h-7 rounded-full bg-paint-clay flex items-center justify-center text-white text-[11px] font-semibold mt-0.5">V</span>
+                            <span className="shrink-0 w-7 h-7 rounded-full bg-white flex items-center justify-center overflow-hidden mt-0.5"><img src={logoSrc} alt="" className="w-5 h-5 object-contain" /></span>
                             <div className="flex flex-col gap-2.5">
                               <div className="bg-paint-ink/[0.06] border border-paint-ink/10 rounded-2xl rounded-tl-sm px-4 py-3 text-[14px] leading-relaxed text-paint-ink">
                                 {msg.text}
@@ -325,7 +325,7 @@ export default function LeadCollector() {
                   <AnimatePresence>
                     {typing && (
                       <motion.div key="typing" initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex gap-2">
-                        <span className="shrink-0 w-7 h-7 rounded-full bg-paint-clay flex items-center justify-center text-white text-[11px] font-semibold">V</span>
+                        <span className="shrink-0 w-7 h-7 rounded-full bg-white flex items-center justify-center overflow-hidden"><img src={logoSrc} alt="" className="w-5 h-5 object-contain" /></span>
                         <div className="flex items-center gap-1.5 bg-paint-ink/[0.06] border border-paint-ink/10 rounded-2xl px-4 py-3">
                           <span className="lead-typing-dot" style={{ animationDelay: "0ms" }} />
                           <span className="lead-typing-dot" style={{ animationDelay: "150ms" }} />
