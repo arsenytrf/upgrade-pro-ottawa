@@ -47,17 +47,17 @@ export default function HomeHero() {
             </div>
 
             <h1 data-hero-title className="display-heavy uppercase text-paint-cream">
-              <span className="block text-[48px] sm:text-[64px] md:text-[84px] lg:text-[108px] xl:text-[128px]">Interior.</span>
-              <span className="block text-[48px] sm:text-[64px] md:text-[84px] lg:text-[108px] xl:text-[128px] text-paint-clay">Exterior.</span>
-              <span className="block text-[48px] sm:text-[64px] md:text-[84px] lg:text-[108px] xl:text-[128px]">Cabinets.</span>
+              <span className="block text-[38px] sm:text-[56px] md:text-[76px] lg:text-[100px] xl:text-[120px]">Interior.</span>
+              <span className="block text-[38px] sm:text-[56px] md:text-[76px] lg:text-[100px] xl:text-[120px] text-paint-clay">Exterior.</span>
+              <span className="block text-[38px] sm:text-[56px] md:text-[76px] lg:text-[100px] xl:text-[120px]">Cabinets.</span>
             </h1>
 
-            <p data-hero-sub className="mt-10 max-w-xl text-paint-cream/75 text-lg md:text-xl leading-[1.55]">
+            <p data-hero-sub className="mt-6 md:mt-10 max-w-xl text-paint-cream/75 text-base md:text-xl leading-[1.55]">
               Real prep. Real paint. Done right the first time by a small,
               hands-on crew serving Ottawa and Gatineau.
             </p>
 
-            <div data-hero-cta className="mt-10 flex flex-wrap items-center gap-3">
+            <div data-hero-cta className="mt-6 md:mt-10 flex flex-wrap items-center gap-3">
               <a href="#estimate" className="btn-hard bg-paint-clay text-paint-cream hover:bg-paint-rust">
                 Get Free Estimate <ArrowRight className="w-4 h-4" />
               </a>

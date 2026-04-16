@@ -11,7 +11,7 @@ export default function MarqueeStrip() {
       <div className="flex animate-marquee whitespace-nowrap">
         {items.map((t, i) => (
           <span key={i} className="flex items-center gap-5 shrink-0 px-5">
-            <span className="display-heavy italic text-3xl md:text-4xl">{t}</span>
+            <span className="display-heavy italic text-xl md:text-4xl">{t}</span>
             <span className="w-3 h-3 bg-paint-cream rotate-45" />
           </span>
         ))}
