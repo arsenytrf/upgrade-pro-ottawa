@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Phone, Menu } from "lucide-react";
 import { cn } from "@/lib/cn";
-import { company } from "@/data/company";
+import { company, logoSrc } from "@/data/company";
 import { navLinks, ctaLink } from "@/data/navigation";
 import MobileDrawer from "./MobileDrawer";
 
@@ -36,13 +36,8 @@ export default function Navbar() {
           <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-14 h-16 md:h-20 flex items-center justify-between gap-6">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
-              <span className="w-9 h-9 bg-paint-clay flex items-center justify-center shrink-0">
-                <span className="display-heavy text-paint-cream text-sm leading-none">UP</span>
-              </span>
-              <div className="leading-tight">
-                <span className="display-cond text-paint-cream text-lg md:text-xl block">UPGRADE PRO</span>
-                <span className="stencil text-paint-cream/55 block">Ottawa Painters</span>
-              </div>
+              <img src={logoSrc} alt="Upgrade Pro" className="h-10 md:h-11 w-auto shrink-0" />
+              <span className="sr-only">Upgrade Pro · Ottawa Painters</span>
             </Link>
 
             {/* Desktop links */}

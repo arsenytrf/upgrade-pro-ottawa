@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Phone, MapPin, Clock, AtSign } from "lucide-react";
-import { company } from "@/data/company";
+import { company, logoSrc } from "@/data/company";
 import { services } from "@/data/services";
 import { navLinks } from "@/data/navigation";
 
@@ -15,13 +15,8 @@ export default function Footer() {
           {/* Brand + bold tagline */}
           <div className="lg:col-span-5">
             <Link href="/" className="flex items-center gap-3 mb-7">
-              <span className="w-9 h-9 bg-paint-clay flex items-center justify-center">
-                <span className="display-heavy text-paint-cream text-sm leading-none">UP</span>
-              </span>
-              <div className="leading-tight">
-                <span className="display-cond text-paint-cream text-xl block">UPGRADE PRO</span>
-                <span className="stencil text-paint-cream/55 block">Ottawa Painters</span>
-              </div>
+              <img src={logoSrc} alt="Upgrade Pro" className="h-14 w-auto" />
+              <span className="sr-only">Upgrade Pro · Ottawa Painters</span>
             </Link>
             <p className="display-cond text-paint-cream text-3xl md:text-4xl leading-[0.95] max-w-md">
               REAL PREP.<br />REAL PAINT.<br /><span className="text-paint-clay">REAL FINISH.</span>

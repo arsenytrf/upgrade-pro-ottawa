@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Phone, MapPin, Clock } from "lucide-react";
-import { company } from "@/data/company";
+import { company, logoSrc } from "@/data/company";
 import { navLinks, ctaLink } from "@/data/navigation";
 
 interface MobileDrawerProps {
@@ -52,13 +52,8 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
           >
             <div className="flex items-center justify-between px-6 py-5 border-b border-paint-cream/10">
               <Link href="/" onClick={onClose} className="flex items-center gap-3">
-                <span className="w-9 h-9 bg-paint-clay flex items-center justify-center">
-                  <span className="display-heavy text-paint-cream text-sm leading-none">UP</span>
-                </span>
-                <div className="leading-tight">
-                  <span className="display-cond text-paint-cream text-lg block">UPGRADE PRO</span>
-                  <span className="stencil text-paint-cream/55 block">Ottawa Painters</span>
-                </div>
+                <img src={logoSrc} alt="Upgrade Pro" className="h-10 w-auto" />
+                <span className="sr-only">Upgrade Pro · Ottawa Painters</span>
               </Link>
               <button onClick={onClose} className="p-2 text-paint-cream/60 hover:text-paint-cream" aria-label="Close menu">
                 <X className="h-6 w-6" />

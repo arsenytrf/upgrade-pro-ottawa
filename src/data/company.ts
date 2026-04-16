@@ -81,5 +81,8 @@ export const galleryImages = [
   { src: land[0], alt: "Kitchen finished" },
 ];
 
+/* Logo */
+export const logoSrc = img("/logo.png");
+
 /* Back-compat */
 export const parallaxImage = sectionImages.parallax;
