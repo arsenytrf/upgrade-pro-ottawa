@@ -27,7 +27,7 @@ export default function BackToTop() {
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       className={cn(
         "fixed z-40 flex items-center justify-center",
-        "bottom-[88px] left-6 w-11 h-11",
+        "bottom-6 left-6 w-11 h-11",
         "bg-white hover:bg-paint-clay/10 text-paint-ink border border-paint-ink/12 shadow-lg",
         "rounded-full transition-all duration-300 cursor-pointer",
         visible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-90 pointer-events-none"
