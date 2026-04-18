@@ -1,0 +1,4 @@
+:HL["/upgrade-pro-ottawa/_next/static/chunks/17incgiydl_k9.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@300..700&display=swap","style"]
+:HL["/upgrade-pro-ottawa/logo.png","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"iCedPPFCSBEWr6iBmQe9M"}
