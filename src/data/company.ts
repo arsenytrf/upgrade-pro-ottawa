@@ -58,13 +58,13 @@ export const sectionImages = {
   process:  [vert[1], vert[2], tall[4], tall[5]],
 };
 
-/* Service cards — 5 photos, one per service (matches services.ts order) */
+/* Service cards — 5 photos from Vasyl, one per service (matches services.ts order) */
 export const servicePhotos = [
-  tall[6],   // interior
-  wide[3],   // exterior
-  land[0],   // cabinets
-  land[5],   // accent walls
-  tall[7],   // trim
+  img("/photos/svc-interior-painting.webp"),  // interior
+  img("/photos/svc-exterior.webp"),            // exterior
+  img("/photos/svc-kitchen-cabinets.webp"),    // cabinets
+  img("/photos/svc-accent-wall.webp"),         // accent walls
+  img("/photos/svc-trim.webp"),                // trim
 ];
 
 /* Big gallery — the remaining work shots */
